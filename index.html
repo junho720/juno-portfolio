@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JUNHO JEON Portfolio</title>
+
+  <!-- Noto Sans KR -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- fullPage.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.28/fullpage.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/common.min.css">
+</head>
+<body>
+
+  <header id="header">
+    <nav class="menu">
+      <ul>
+        <li><a href="#main">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#designs">Design</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="fullpage">
+    <!-- 1. 메인 -->
+    <section class="section hero">
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="assets/video/intro-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="inner">
+        <h2>Web Publisher & Frontend Developer</h2>
+        <p>사용자와 디자인을 잇는 인터랙티브한 웹 경험을 만듭니다.</p>
+        <a href="#projects" class="btn">View My Work</a>
+      </div>
+    </section>
+
+    <!-- 2. 자기소개 -->
+    <section class="section about">
+      <div class="inner">
+        <h2>About Me</h2>
+        <div class="keywords">
+          <span>Web Publisher</span>
+          <span>UI/UX Lover</span>
+          <span>Desgin</span>
+          <span>Creative Thinker</span>
+        </div>
+
+        <p class="intro-text">
+          사용자 경험을 중심으로 한 반응형 웹을 만듭니다.<br>
+          기술과 디자인의 조화를 통해, <strong>더 나은 사용성</strong>을 추구합니다.
+        </p>
+
+        <div class="certificates">
+          <h3>📜 Certificates</h3>
+          <ul>
+            <li>네트워크관리사 2급</li>
+            <li>컴퓨터그래픽스운용기능사</li>
+            <li>웹디자인기능사</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 프로젝트 -->
+    <section class="section projects">
+      <div class="inner">
+        <h2>Projects</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <h3>HRD 교육원 리뉴얼</h3>
+            <p>기존 UI/UX 개선</p>
+            <a href="./projects/detail-hrd.html" class="btn">View Details</a>
+          </div>
+          <div class="project-card">
+            <h3>누리사이버교육원 리뉴얼</h3>
+            <p>접근성 강화 및 디자인 시스템 재정립</p>
+            <a href="./projects/detail-nuri.html" class="btn">View Details</a>
+          </div>
+          <div class="project-card">
+            <h3>테마파크 리뉴얼 아이디어</h3>
+            <p>통도환타지아 웹사이트 UX 개선 콘셉트</p>
+            <a href="./projects/detail-tongdo.html" class="btn">View Details</a>
+          </div>
+          <div class="project-card">
+            <h3>한국관광공사 리뉴얼 아이디어</h3>
+            <p>정보 접근성 및 이미지 중심 UX 재구성</p>
+            <a href="./projects/detail-korea.html" class="btn">View Details</a>
+          </div>
+          <div class="project-card">
+            <h3>영화 “미나리” 소개 페이지</h3>
+            <p>영화 테마의 맞춘 감성 페이지</p>
+            <a href="./projects/minari.html" class="btn">View Details</a>
+          </div>
+          <div class="project-card">
+            <h3>영화 테마 데모 페이지</h3>
+            <p>영화 컨텐츠 / 다크모드 토글 / 텍스트입력</p>
+            <a href="./projects/tech.html" class="btn">View Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 디자인 결과물 -->
+    <section class="section designs">
+      <div class="inner">
+        <h2>Design Works</h2>
+        <p>작업했던 배너 디자인 시안과 결과물입니다.</p>
+        <a href="#" class="btn" id="openPopup">View Designs</a>
+
+        <!-- ✅ 팝업 -->
+        <div class="popup" id="popup">
+          <div class="popup-content">
+            <button class="close-popup">×</button>
+            <img src="assets/images/all_designs.jpg" alt="Design Works">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 5. Contact -->
+    <section class="section contact">
+      <div class="inner">
+        <h2>Contact</h2>
+        <p class="f-sz-13rem">Phone : 010-2035-6374</p>
+        <p class="f-sz-13rem">Email: ouk945@naver.com</p>
+        <p class="f-sz-13rem">GitHub: <a href="https://github.com/yourid" target="_blank">github.com/yourid</a></p>
+        <p class="f-sz-13rem mt-10" >Copyright© JUNHO All rights reserved.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- fullPage.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.28/fullpage.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
