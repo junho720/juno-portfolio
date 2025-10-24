@@ -1,0 +1,250 @@
+@charset "UTF-8";
+
+/* 서브 공통 - 전체 */
+button{cursor: pointer;}
+.blind{font-size: 0; line-height: 0; width: 1px; height: 1px; opacity: 0; visibility: hidden; overflow: hidden; position: absolute; left: -9999px;}
+.inner{max-width: 1180px; margin: 0 auto; position: relative;}
+.pd-l-270{padding-left: 270px;}
+.pd-l-50{padding-left: 50px;}
+.wd-960{max-width: 960px; margin: 0 auto;}
+
+/* 서브 공통 - 비주얼 */
+.bg-txt h2{display: inline-block; padding-top: 83px; font-size: 35px; font-weight: 500; color: #fff;}
+.bg-txt h2::before{content: ""; display: inline-block; width: 100%; height: 5px; margin-bottom: 4px; background: #fc9e4f;}
+.bg-txt p{font-size: 15px; font-weight: 500; color: #fff;}
+.bread{width: 100%; height: 60px; margin-top: 84px; background-color: #fc9e4f;}
+.bread .home{display: inline-block; width: 60px; height: 60px; background: #fcb275 url(../images/ico_useguide_home.png) no-repeat center center;}
+.bread > ul{position: absolute; left: 85px; bottom: 20px;}
+.bread > ul > li{float: left; padding-right: 46px;}
+.bread > ul > li > a{font-size: 15px; color: #fff; position: relative;}
+.bread > ul > li > a::after{content: ""; display: inline-block; width: 9px; height: 16px; background: url(../images/ico_useguide_arrow.png) no-repeat; position: absolute; top: 1px; right: -30px;}
+.bread > ul > li:last-child > a::after{display: none;}
+
+/* 서브 공통 - lnb */
+.lnb{width: 270px; position: absolute; top: 10px; left: 0; z-index: 1;}
+.lnb > ul > li{position: relative;}
+.lnb > ul > li > a.dep-1{display: block; padding: 20px; border-bottom: 1px solid #e0e0e0; box-sizing: border-box; font-size: 17px; font-weight: 500;}
+.lnb > ul > li > a.dep-1.active{border-bottom: 3px solid #fc7c11; box-sizing: border-box; color: #fc7c11;}
+.lnb > ul > li.more > a.dep-1::after{content: ""; display: inline-block; width: 15px; height: 15px; background: url(../images/ico_dep1_plus.png) no-repeat; position: absolute; top: 18px; right: 15px;}
+.lnb > ul > li.more > a.dep-1.active::after{content: ""; display: inline-block; width: 15px; height: 15px; background: url(../images/ico_dep1_plus.on.png) no-repeat; position: absolute; top: 25px; right: 15px;}
+.lnb ul.dep-2{padding: 16px 0 16px 22px; border-bottom: 1px solid #e0e0e0; display: none;}
+.lnb ul.dep-2.active{display: block;}
+.lnb ul.dep-2 > li > a{display: inline-block; font-size: 15px; line-height: 2; position: relative;}
+.lnb ul.dep-2 > li > a::before{content: ""; display: inline-block; width: 2px; height: 2px; background: #fc7c11; position: absolute; top: 50%; left: -6px; transform: translateY(-50%);}
+.lnb ul.dep-2 > li > a.active{color: #fc7c11;}
+.lnb ul.dep-2 > li.more > a::after{content: ""; display: inline-block; width: 10px; height: 10px; margin-left: 10px; background: url(../images/ico_dep1_plus.png) no-repeat; background-size: 10px 10px;}
+.lnb ul.dep-2 > li.more > a.active::after{content: ""; display: inline-block; width: 10px; height: 6px; margin-left: 10px; background: url(../images/ico_dep1_plus.on.png) no-repeat; background-size: 10px 1px;}
+.lnb ul.dep-3{width: 200px; padding: 15px; background-color: #f6f6f6; display: none;}
+.lnb ul.dep-3 > li > a{display: block; font-size: 14px; font-weight: 300; line-height: 1.8; color: #28282e;}
+.lnb ul.dep-3 > li > a.active{font-weight: 500;}
+
+/* 서브 공통 - 콘텐츠 */
+.contents{position: relative; padding-bottom: 50px;}
+.contents::after{content: ""; display: block; clear: both;}
+.contents h3{padding-top: 40px; font-size: 32px; font-weight: 700;}
+.contents h3::after{content: ""; display: block; width: 860px; height: 1px; margin-top: 20px; background: #fc7c11;}
+.contents .share-area{float: right; position: absolute; top: 40px; right: 0;}
+.contents .share-area a{display: inline-block; width: 21px; height: 20px; margin-left: 15px;}
+.contents .share-area a.share{float: left; background: url(../images/ico_useguide_share.png) no-repeat left 0;}
+.contents .share-area a.print{float: right; background: url(../images/ico_useguide_share.png) no-repeat right 0;}
+.contents h4{font-size: 25px; font-weight: 500; color: #fc7c11;}
+.contents p{padding-top: 18px; font-size: 15px; font-weight: 400; letter-spacing: -.6px; line-height: 1.6;}
+
+/* 서브 공통 - 테이블 */
+.table-area{padding-top: 50px;}
+.table-area table{margin-top: 18px; font-size: 15px; font-weight: 500; text-align: center;}
+.table-area thead{background-color: #f6f6f6;}
+.table-area thead > tr > th{border-top: 2px solid #fc7c11; border-right: 1px solid #ccc;}
+.table-area thead > tr > th:last-child{border-right: none;}
+.table-area tbody > tr > td{border: 1px solid #ccc;}
+.table-area tbody > tr > td:first-child{border-left: none;}
+.table-area tbody > tr > td:last-child{border-right: none;}
+
+/* 서브1 - 정보공개 */
+.disclosure-wrap{width: 100%; height: 310px; padding-top: 130px; background: url(../images/bg_disclosure.jpg) no-repeat; background-size: cover;}
+.useguide-t{padding-top: 50px;}
+.useguide-m{padding-top: 50px;}
+.useguide-m::after{content: ""; display: block; clear: both;}
+.useguide-m img{padding-top: 70px; padding-left: 70px;}
+.useguide-m div{float: right; width: 430px;}
+.useguide-m div ul li strong{display: block; padding-top: 20px; font-size: 15px; font-weight: 700; letter-spacing: -.6px; position: relative;}
+.useguide-m div ul li strong::before{content: ""; display: inline-block; width: 2px; height: 2px; background: #fc7c11; position: absolute; bottom: 7px; left: -5px;}
+.useguide-m div ul li span{display: inline-block; padding-top: 10px; font-size: 15px; font-weight: 400; letter-spacing: -.6px; line-height: 1.6;}
+.useguide-m button{width: 200px; height: 45px; margin-top: 30px; border: none; background: #fc7c11; font-size: 15px; font-weight: 700; color: #fff;}
+.useguide-b{padding-top: 50px;}
+
+/* 서브2 - 국민참여 */
+.customer-wrap{width: 100%; height: 310px; padding-top: 130px; background: url(../images/bg_customer.jpg) no-repeat; background-size: cover;}
+.charter{padding-top: 50px;}
+.charter::after{content: ""; display: block; clear: both;}
+.charter img{padding-top: 30px; padding-left: 30px;}
+.charter div{float: right; width: 390px; padding-top: 50px; padding-right: 30px;}
+.charter div ul li{padding-bottom: 10px; font-size: 15px; font-weight: 400; letter-spacing: -.6px; line-height: 1.6;}
+.charter div > p{font-weight: 500; letter-spacing: -.6px; text-align: right;}
+.charter div > p span{display: inline-block; padding-top: 10px;}
+
+/* 서브3 - 사업 */
+.business-wrap{width: 100%; height: 310px; padding-top: 130px; background: url(../images/bg_business.jpg) no-repeat; background-size: cover;}
+.realname-m h5{padding-top: 50px; font-size: 15px; font-weight: 500; color: #fc7c11;}
+.realname-m table{margin-top: 18px; text-align: center;}
+.realname-m thead > tr > th{border-top: 2px solid #1a1a1a; border-bottom: 1px solid #ccc; font-weight: 500;}
+.realname-m tbody > tr > td{border-bottom: 1px solid #ccc; font-size: 14px;}
+
+/* 서브4 - 알림 */
+.notice-wrap{width: 100%; height: 310px; padding-top: 130px; background: url(../images/bg_notice.jpg) no-repeat; background-size: cover;}
+.press-t{position: relative;}
+.press-t img{padding-top: 18px;}
+.press-t p{position: absolute; top: 4px; left: 150px;}
+.press-m{position: relative;}
+.press-m .search{float: right; padding-top: 50px;}
+.press-m .search p{position: absolute; left: 0; font-weight: 500;}
+.press-m .search p span{display: inline-block; margin-left: 10px; padding-left: 11px; color: #fc7c11; position: relative;}
+.press-m .search p span::before{content: ""; display: inline-block; width: 1px; height: 11px; background: #e0e0e0; position: absolute; top: 50%; left: 0; transform: translateY(-50%);}
+.press-m .search > div{display: inline-block;}
+.press-m select{width: 100px; height: 45px; margin-top: 1px; padding-left: 10px; border: 1px solid #e0e0e0; border-radius: 0; font-size: 15px; font-weight: 500;}
+.press-m input{width: 255px; height: 45px; margin-right: -4px; padding-left: 10px; border: 1px solid #e0e0e0; border-radius: 0; box-sizing: border-box;}
+.press-m button{width: 90px; height: 45px; border: none; background: #1a1a1a; font-size: 15px; font-weight: 500; color: #fff;}
+.press-m h5{padding-top: 50px; font-size: 15px; font-weight: 500; color: #fc7c11;}
+.press-m table{margin-top: 18px;}
+.press-m thead > tr > th{border-top: 2px solid #1a1a1a; border-bottom: 1px solid #ccc; font-weight: 500;}
+.press-m tbody > tr > td{border-bottom: 1px solid #ccc; font-size: 14px; text-align: center;}
+.press-m tbody > tr > td:first-child{text-align: left;}
+.press-m tbody > tr > td > a{padding-left: 10px; position: relative;}
+.press-m tbody > tr > td > a > i{display: inline-block; width: 12px; height: 11px; background: url(../images/ico_press_file.gif) no-repeat center center; position: absolute; top: 4px; right: -16px;}
+.paging{margin-top: 30px;}
+.paging .pagination{text-align: center;}
+.paging .pagination li{display: inline-block;}
+.paging .pagination li a{display: block; width: 36px; height: 36px; margin-right: -5px; border: 1px solid #e0e0e0; font-size: 13px; font-weight: 500; line-height: 36px; color: #28282e;}
+.paging .pagination li.on a{border: 1px solid #28282e; color: #fff; background: #28282e;}
+.paging .pagination li a.front{background: url(../images/ico_press_front.png) no-repeat center center; text-indent: -9999px;}
+.paging .pagination li a.prev{margin-right: 10px; background: url(../images/ico_press_prev.png) no-repeat center center; text-indent: -9999px;}
+.paging .pagination li a.next{margin-left: 15px; background: url(../images/ico_press_next.png) no-repeat center center; text-indent: -9999px;}
+.paging .pagination li a.end{background: url(../images/ico_press_end.png) no-repeat center center; text-indent: -9999px;}
+
+/* 서브5 - 공사 */
+.about-wrap{width: 100%; height: 310px; padding-top: 130px; background: url(../images/bg_about.jpg) no-repeat; background-size: cover;}
+.vision-con ul::after{content: ""; display: block; clear: both;}
+.vision-con-txt{padding-top: 50px; padding-bottom: 30px;}
+.vision-con-txt strong{padding-left: 50px; font-size: 17px; font-weight: 700; position: relative;}
+.vision-con-txt strong::before{content: ""; display: inline-block; width: 40px; height: 2px; background: #fc7c11; position: absolute; bottom: 50%; left: 0;}
+.vision-con1{height: 300px; position: relative;}
+.vision-con1 .bg{width: 860px; height: 150px; margin-top: 50px; background: #f8efe7; position: absolute; top: 50px;}
+.vision-con1 .box{width: 650px; height: 100px; border: 2px solid #e0e0e0; background: #fff; text-align: center; position: absolute; top: 50px; left: 50%; transform: translateX(-50%);}
+.vision-con1 .box .tit{font-size: 15px; font-weight: 500; color: #fc9e4f;}
+.vision-con1 .box .txt{padding-top: 10px; font-size: 22px; font-weight: 500; line-height: 1.25;}
+.vision-con1 div:nth-of-type(3){margin-top: 150px;}
+.vision-con2 .values ul li{float: left; margin: 0 11px 0; position: relative;}
+.vision-con2 .values ul li p{font-size: 18px; font-weight: 700; line-height: 1.4; text-align: center; color: #fff; position: absolute; top: 48%; left: 50%; transform: translate(-50%,-50%);}
+.vision-con3 .goal{position: relative;}
+.vision-con3 .goal-t{padding-bottom: 200px;}
+.vision-con3 .goal-b{position: absolute; top: 200px; left: 144px;}
+.vision-con3 ul li{float: left; padding: 0 30px 0; position: relative;}
+.vision-con3 ul li p{font-size: 18px; font-weight: 700; line-height: 1.4; text-align: center; color: #28282e; position: absolute; top: 42%; left: 50%; transform: translate(-50%,-50%);}
+.vision-con3 ul li span{font-size: 18px; font-weight: 700; color: #fc7c11; position: absolute; bottom: 16%; left: 50%; transform: translateX(-50%);}
+.vision-con4 .direction ul li{float: left; margin: 0 11px 0; position: relative;}
+.vision-con4 .direction ul li p{width: 150px; font-size: 18px; font-weight: 700; line-height: 1.4; text-align: center; color: #fff; position: absolute; top: 48%; left: 50%; transform: translate(-50%,-50%);}
+.vision-con5 .tasks ul:last-child{padding-top: 15px;}
+.vision-con5 .tasks ul li{float: left; margin-right: 15px; position: relative;}
+.vision-con5 .tasks ul li:last-child{margin-right: 0;}
+.vision-con5 .tasks ul li p{width: 160px; font-size: 18px; line-height: 1.4; text-align: center; position: absolute; top: 48%; left: 50%; transform: translate(-50%,-50%);}
+
+/* 로그인 */
+.login-wrap{padding-top: 240px;}
+.login-t{position: relative; height: 70px; /* margin-top: 110px; */border-bottom: 1px solid #e0e0e0;}
+.login-t::after{content: ""; display: block; clear: both;}
+.login-t h2{font-size: 45px; font-weight: 500;}
+.login-t .share-area{position: absolute; top: 0; right: 0;}
+.login-t .share-area a{display: inline-block; width: 41px; height: 41px; margin-left: 10px;}
+.login-t .share-area a.share{float: left; background: url(../images/ico_login_share.png) no-repeat;}
+.login-t .share-area a.print{float: right; background: url(../images/ico_login_print.png) no-repeat;}
+.login-m::after{content: ""; display: block; clear: both;}
+.login-m p{height: 30px; margin: 30px 0 30px; background-color: #fc7c11; font-size: 13px; font-weight: 300; line-height: 30px; text-align: center; color: #fff;}
+.login-m a{float: left; width: 60px; height: 46px; margin: 22px 60px 0 60px; background: url(../images/ico_login_mail.png) no-repeat;}
+.login-m ul li{float: left; padding-left: 20px; padding-right: 20px; border-left: 1px solid #e0e0e0;}
+.login-m ul li strong{font-size: 18px; font-weight: 500;}
+.login-m ul li span{display: block; padding-top: 20px; font-size: 13px; line-height: 1.6; color: #28282e;}
+.login-m h3{float: right; padding-top: 15px;}
+.login-b{width: 580px; margin: 0 auto;}
+.login-b .input-area{padding-top: 120px;}
+.login-b .input-area input{width: 100%; height: 84px; border: 1px solid #e0e0e0; box-sizing: border-box;}
+.login-b .input-area input::placeholder{padding-left: 30px; font-size: 18px; font-weight: 300; color: #ccc;}
+.login-b .input-area .inp-pw{margin-top: 10px;}
+.login-b .accnt-area{padding-top: 30px;}
+.login-b .accnt-area input[type=checkbox]{position: absolute; top: -9999px;}
+.login-b .accnt-area label{position: relative; display: inline-block; padding-left: 30px; font-size: 15px; font-weight: 400;}
+.login-b .accnt-area input[type=checkbox] + label::before{content: ""; position: absolute; top: -4px; left: 0; width: 18px; height: 18px; border-radius: 3px; background-color: #e0e0e0;}
+.login-b .accnt-area input[type=checkbox]:checked + label::before{background: #e0e0e0 url(../images/ico_login_check.png) no-repeat center center;}
+.login-b .accnt-area ul{float: right;}
+.login-b .accnt-area ul li{float: left;}
+.login-b .accnt-area ul li a{display: inline-block; margin-left: 11px; padding-left: 10px; border-left: 1px solid #e0e0e0; font-size: 15px;}
+.login-b .accnt-area ul li:first-child a{border: none;}
+.login-b .btn-area{padding-top: 10px;}
+.login-b .btn-area button{width: 100%; height: 84px; border: none; background: #fc9e4f; font-size: 20px; cursor: pointer;}
+.login-info .custom-numb{margin: 120px 0 60px; border: 1px solid #ccc; background: #f6f6f6;}
+.login-info .custom-numb::after{content: ""; display: block; clear: both;}
+.login-info .custom-numb .chat{float: left; width: 179px; height: 78px; background: #fc7c11 url(../images/ico_login_chat.png) no-repeat center center;}
+.login-info .custom-numb div{float: left; padding-top: 20px; padding-left: 60px;}
+.login-info .custom-numb p{position: relative; font-size: 12px; line-height: 2;}
+.login-info .custom-numb p::before{content: ""; display: inline-block; position: absolute; left: -30px; width: 19px; height: 19px; padding: 12px 0 12px; background: url(../images/ico_login_arrow.png) no-repeat;}
+.login-info .custom-numb ul{float: right;}
+.login-info .custom-numb ul li{float: left; margin-top: 12px; margin-right: 10px; text-align: center;}
+.login-info .custom-numb ul li a{display: inline-block; width: 40px; height: 40px;}
+.login-info .custom-numb ul li a.golf{background: url(../images/ico_login_btom1.png) no-repeat;}
+.login-info .custom-numb ul li a.stay{background: url(../images/ico_login_btom2.png) no-repeat;}
+.login-info .custom-numb ul li a.mice{background: url(../images/ico_login_btom3.png) no-repeat;}
+.login-info .custom-numb ul li a.gall{background: url(../images/ico_login_btom4.png) no-repeat;}
+.login-info .custom-numb ul li span{display: block; padding-top: 4px; font-size: 10px; font-weight: 400;}
+
+/* 회원가입 공통 */
+.bg-gr{width: 100%; height: 100vh; position: absolute; z-index: -100; background-color: #f6f6f6;}
+.bg-gr2{width: 100%; height: 130%; position: absolute; z-index: -100; background-color: #f6f6f6;}
+.bg-wt{width: 960px; height: 100%; position: absolute; top: 147px; left: 50%; z-index: -100; transform: translateX(-50%); background-color: #fff;}
+.join-t h2{height: 70px; padding-top: 240px; border-bottom: 1px solid #e0e0e0; font-size: 45px; font-weight: 500;}
+.join-t .bread{margin-top: 30px;}
+.join-step{position: relative; text-align: center;}
+.join-step::after{content: ""; display: block; clear: both;}
+.join-step h3{padding-top: 50px; font-size: 17px; font-weight: 500;}
+.join-step > ul {float: left; width: 100%; margin-top: 40px;}
+.join-step > ul > li{float: left; width: 120px; height: 40px; margin-right: 20px; border-radius: 20px 0 10px 0; background-color: #ccc;}
+.join-step > ul > li.on{background-color: #fc7c11;}
+.join-step > ul > li span{display: inline-block; font-size: 14px; line-height: 42px; color: #28282e;}
+.join-step > ul > li.on span{color: #fff;}
+
+/* 회원가입 - 회원분류선택 */
+.join-step .join-choise > ul{margin-left: 24px;}
+.join-step .join-choise > ul::after{content: ""; display: block; clear: both;}
+.join-step .join-choise > ul > li{float: left; margin-top: 80px; margin-right: 24px;}
+.join-step .custom-numb{padding-bottom: 90px;}
+.join-step .custom-numb::after{content: ""; display: block; clear: both;}
+.join-step .custom-numb div{float: left; padding-top: 20px; padding-left: 60px; text-align: left;}
+.join-step .custom-numb p{position: relative; font-size: 12px; line-height: 2;}
+.join-step .custom-numb p::before{content: ""; display: inline-block; position: absolute; left: -30px; width: 19px; height: 19px; padding: 12px 0 12px; background: url(../images/ico_login_arrow.png) no-repeat;}
+
+/* 회원가입 - 이용약관동의 */
+.agree-box{padding: 0 20px 0; text-align: left;}
+.agree-box h4{margin-top: 40px; margin-bottom: 10px; font-size: 14px;}
+.agree-box .txt-wrap{width: 920px; height: 200px; padding: 30px; border: 1px solid #e0e0e0; box-sizing: border-box; background-color: #f6f6f6; overflow-y: scroll;}
+.agree-box .txt-wrap p{padding: 5px 0 5px; font-size: 12px; font-weight: 300; line-height: 24px; color: #28282e;}
+.agree-box .txt-wrap p strong{display: inline-block; padding-top: 20px; font-weight: 500;}
+.agree-box .txt-wrap p:nth-of-type(1) strong{padding-top: 0;}
+.agree-box .txt-wrap p span{display: inline-block; padding-left: 20px;}
+.agree-terms{float: right; width: 100%; margin-top: 10px; margin-right: 20px; text-align: right;}
+.agree-terms span{font-size: 12px;}
+.agree-terms label{font-size: 12px;}
+.agree-warning{text-align: left;}
+.agree-warning p{margin-top: 10px; margin-left: 30px; font-size: 12px; font-weight: 300; line-height: 22px;}
+.agree-button{margin-top: 60px;}
+.agree-button button{padding: 8px; margin-bottom: 90px; border: 1px solid #e0e0e0;}
+.agree-button .agr-btn{margin-right: 40px; background-color: #28282e; color: #fff;}
+.agree-button .dis-btn{background-color: #ccc;}
+
+/* 회원가입 - 실명인증 */
+.join-certify::after{content: ""; display: block; clear: both;}
+.join-certify .certify-box{position: relative; float: left; width: 350px; height: 179px; margin: 80px 24px 0 118px; padding: 20px 38px 20px; border: 1px solid #e0e0e0; box-sizing: border-box; background-color: #f6f6f6; text-align: left;}
+.join-certify div:nth-of-type(2){margin-left: 0;}
+.join-certify .certify-box i{display: inline-block; width: 35px; height: 45px;}
+.join-certify .certify-box span{display: inline-block;}
+.join-certify .certify-box p{margin-top: 10px; font-size: 10px; color: #28282e;}
+.join-certify .certify-box button{width: 100px; height: 40px; margin-top: 10px; border: none; border-radius: 10px; background-color: #fc9e4f; color: #fff; position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%);}
+.join-certify .phone i{background: url(../images/ico_join_phone.jpg) no-repeat;}
+.join-certify .ipin i{background: url(../images/ico_join_ipin.jpg) no-repeat;}
