@@ -1,0 +1,268 @@
+/* 상단 메뉴 */
+#header {
+  position:fixed; top:0; left:0; width:100%; z-index:999;
+  background: rgba(66, 66, 66, 0.8);
+  backdrop-filter: blur(6px);
+  .menu{
+    display:flex; justify-content:right;
+    ul{ display:flex; list-style:none; margin:0; padding:0; margin-right: 5rem;
+      li{ margin:0 1rem;
+        a{ font-size: 1.4rem; color:#fff; text-decoration:none; font-weight:500; padding:1.5rem 0; display:block;
+          transition:0.3s;
+          &:hover{ color:#1db954; }
+        }
+      }
+    }
+  }
+}
+
+
+/* 공통 섹션 스타일 */
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: #f1f1f1;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1100px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+p {
+  line-height: 1.6;
+  opacity: 0.9;
+
+  .p-fs13{
+    font-size: 1.3rem;
+  }
+}
+
+
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.6rem;
+  background-color: #222;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  &:hover { background-color: #333; }
+}
+
+/* 섹션별 배경 */
+.hero { background: #0d0d0d; }
+.about { background: #141414; }
+.projects { background: #191919; }
+.designs { background: #121212; }
+.contact { background: #0f0f0f; }
+
+/* 프로젝트 그리드 */
+.project-grid {
+   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto); 
+  gap: 2rem; 
+  justify-items: center; 
+  align-items: start; 
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto
+}
+
+@media (max-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.project-card {
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    background: #222;
+  }
+
+  h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+  p { font-size: 0.95rem; opacity: 0.8; }
+}
+/* 인트로 페이지 */
+.hero {
+  position: relative;
+  overflow: hidden;
+  
+  .bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.5); /* 살짝 어둡게 영화 분위기 */
+  }
+
+  /* 위아래 시네마 블랙바 효과 */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 12vh; /* 상하 블랙바 높이 (조정 가능) */
+    background: #000;
+    z-index: 2;
+  }
+
+  &::before { top: 0; }
+  &::after { bottom: 0; }
+
+  .inner {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+
+
+/* about 페이지 */
+.about {
+  background: #141414;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 120px 0;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+
+    span {
+      padding: 0.6rem 1.2rem;
+      border: 1px solid #ff0033;
+      border-radius: 30px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      cursor: default;
+
+      &:hover {
+        background: #ff0033;
+        color: #fff;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.85;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
+  .certificates {
+    margin-top: 2rem;
+
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #e8d500;
+      font-weight: 700;
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+
+      li {
+        font-size: 1rem;
+        opacity: 0.9;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 5px;
+      }
+    }
+  }
+}
+
+/* ✅ 팝업 */
+.designs {
+  position: relative; 
+
+  .popup {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10; 
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-content {
+      position: relative;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 80%;
+      max-width: 900px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      img { width: 100%; border-radius: 10px; }
+
+      .close-popup {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: #333;
+        &:hover { transform: scale(1.1); }
+      }
+    }
+  }
+}
+
+

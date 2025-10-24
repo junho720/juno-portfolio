@@ -1,0 +1,256 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+@import 'base';
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #000;
+  line-height: 1.4;
+}
+
+.minari {
+  .minari__section {
+    width: 100%;
+    overflow: hidden;
+    
+  }
+
+  /* 1️⃣ Hero Section */
+  .section--hero {
+    background-color: #1a1a1a;
+    
+    .hero__image img {
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .hero__synopsis {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0 auto;
+      padding: 60px 0;
+      color: #23250b;
+      background: #88a431;
+
+      .hero__title {
+        flex: 1;
+        text-align: center;
+
+        h1 {
+          font-size: 2rem;
+          font-weight: 700;
+        }
+      }
+
+      .hero__text {
+        flex: 2;
+        padding-right: 14%;
+
+        p {
+          font-size: 1.1rem;
+          line-height: 1.8;
+        }
+      }
+    }
+  }
+
+  /* 2️⃣ Trailer Section */
+  .section--trailers {
+  background: #101113;
+  padding: 120px 0;
+
+    .swiper-container {
+      width: 100%;
+      height: 600px;
+      margin: 0 auto;
+
+      .swiper-wrapper {
+        width: 100%;
+        height: 100%;
+
+        .swiper-slide {
+          width: 768px;
+          opacity: 0.6;
+          transform: translateY(60px);
+          transition: all 0.3s ease;
+
+          &.swiper-slide-active,
+          &.swiper-slide-duplicate-active {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+          iframe {
+            width: 100%;
+            height: 432px; // 원본 영상 비율에 맞춤
+          }
+        }
+      }
+    }
+ 
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #bdbe32;
+  }
+  }
+
+  /* 3️⃣ Cast Section */
+  .section--cast {
+    background: url(../images/minari/bg2.png) no-repeat center / cover;
+    text-align: center;
+    padding: 80px;
+    
+    .director {
+
+      h3{
+        color: #fff;
+      }
+
+      img{
+        margin-bottom: 1em;
+      }
+    }
+
+    h2 {
+      font-size: 29px;
+      font-weight: 700;
+      margin-bottom: 1em;
+    }
+
+    .actors{
+
+      h2{
+        margin-top: 1em;
+      }
+
+      .actor-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+
+        .actor {
+          width: 9%;
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          padding: 2em; 
+          color: #fff;         
+
+          img {
+            width: 100%;
+            margin-bottom: 1em;
+          }
+
+          h3 {
+            font-weight: 600;
+            
+          }
+
+          p {
+            font-size: 0.9rem;
+            
+          }
+        }
+      }
+    }
+    
+  }
+
+  /* 4️⃣ Stills Section */
+  .section--stills {
+    background: #101113;
+    text-align: center;
+    color: #bdbe32;
+    padding: 80px 0;
+
+    h2 {
+      font-size: 29px;
+      margin-bottom: 1em;
+      font-weight: 700;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+
+        .swiper-wrapper {
+          display: flex;
+
+          .swiper-slide {
+            img {
+              width: 100%;
+              transition: transform 0.3s ease;
+
+              &:hover {
+                transform: scale(1.03);
+              }
+            }
+          }
+        }
+      }
+    }
+  
+
+  /* 5️⃣ Poster Section */
+    .section--poster {
+    position: relative; 
+    width: 100%;
+    overflow: hidden;
+    background: #647724; 
+    padding: 50px 0;
+
+    .poster__slider {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+
+        .swiper-wrapper {
+          display: flex;
+
+          .swiper-slide {
+            display: flex;
+            justify-content: center; // 슬라이드 안에서 가로 중앙
+            align-items: center;     // 슬라이드 안에서 세로 중앙
+            width: auto;             // 이미지 크기에 맞춰 슬라이드 폭 자동
+
+            img {
+              max-width: 80%;        // 필요 시 100%로 조정
+              height: auto;
+              display: block;
+              margin: 0 auto;        // block이라 수평 중앙
+            }
+          }
+        }
+      }
+
+      .swiper-pagination {
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+      }
+
+    .poster__button {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      margin-top: 20px;
+
+      a img {
+        display: inline-block;
+      }
+    }
+
+    .grass {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30vh; 
+      background: url("../images/minari/bottombg.png") center bottom / cover no-repeat;
+      pointer-events: none; 
+      z-index: 1;
+    }
+  }
+}

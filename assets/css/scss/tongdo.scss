@@ -1,0 +1,576 @@
+@charset "utf-8";
+@import 'base';
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #222;
+}
+
+/* 상단 유틸바 */
+.topbar {
+  background: #002d80;
+  color: #fff;
+  font-size: 14px;
+  .topbar__inner {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: right;
+    padding: 10px 0;
+
+    .topbar__links {
+      a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 5px;
+        transition: opacity 0.2s;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      span {
+        color: rgba(255,255,255,0.6);
+      }
+    }
+  }
+}
+
+/* Header */
+.header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  .header__inner {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+  }
+  .gnb {
+  position: relative;
+
+  .depth1 {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+
+    > li {
+      position: relative;
+      a {
+        font-weight: 600;
+        color: #222;
+        text-decoration: none;
+        padding: 15px 0;
+        display: inline-block;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #0040a0;
+        }
+      }
+
+      /* 2단 메뉴 */
+      .depth2 {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        min-width: 160px;
+        z-index: 10;
+
+        li {
+          a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+            &:hover {
+              background: #f2f6ff;
+              color: #0040a0;
+            }
+          }
+        }
+      }
+
+      /* hover 시 서브메뉴 표시 */
+      &:hover .depth2 {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+}
+
+/* Main Slider */
+.main-slider {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+
+  .swiper-slide {
+    width: 100%;
+    height: 600px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #fff;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.6;
+    &-active {
+      opacity: 1;
+      background: #ffd000;
+    }
+  }
+}
+
+
+/* 운영시간 */
+.open-time {
+  background: #002d80;
+  color: #fff;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 18px;
+  font-weight: 500;
+
+  .open-time__inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    i {
+      font-size: 20px;
+      color: #ffd800; // 시계 아이콘 색
+    }
+  }
+}
+
+/* 서브 네비게이션 */
+.sub-nav-wrap{
+  padding: 15px 0;
+
+    .sub-nav {
+    background: #f2be00;
+    border-radius: 50px;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px 0;
+
+      li {
+        a {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-decoration: none;
+          color: #002d80;
+          font-weight: 600;
+          transition: all 0.3s ease;
+
+          img {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 6px;
+            display: block;
+          }
+
+          span {
+            display: block;
+            font-size: 15px;
+            line-height: 1;
+          }
+
+          &:hover {
+            transform: translateY(-3px);
+            color: #000c5a;
+
+            img {
+              filter: brightness(1.2);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* 인기 어트랙션 */
+.attraction {
+  text-align: center;
+  padding: 100px 0;
+  background: url("../images/tongdo/attr_bg.jpg") no-repeat center / cover;
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 60px;
+    color: #222;
+    span {
+      color: #003b8e;
+      font-weight: 700;
+    }
+  }
+
+ .attraction__list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+
+  .item {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+    overflow: hidden;
+    transition: transform 0.3s ease, filter 0.3s ease;
+
+    .img-box {
+      height: 550px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+    }
+
+    .text-box {
+      height: 120px;
+      padding: 20px;
+      background: #fff;
+      text-align: left;
+
+      strong {
+        color: #0040a0;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      p {
+        color: #666;
+        font-size: 15px;
+      }
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+
+    &:nth-child(even) {
+      flex-direction: column-reverse;
+
+      .text-box {
+        background: #fff;
+        border-top: 1px solid #eee;
+        border-bottom: none;
+      }
+    }
+  }
+
+  /* ✅ 추가된 부분: hover 시 나머지 어둡게 */
+  &:hover .item {
+    filter: brightness(0.6);
+  }
+
+  .item:hover {
+    filter: brightness(1);
+    transform: translateY(-5px);
+  }
+}
+
+
+  .btn-wrap {
+    margin-top: 40px;
+
+    .btn-more {
+      background: #0040a0;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #002d70;
+      }
+    }
+  }
+}
+
+/* 대표 할인 */
+.discount {
+  text-align: center;
+  padding: 100px 0;
+  background: #fff;
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .discount__grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 80%;
+    margin: 0 auto;
+
+    .discount__item {
+      width: 180px;
+      text-align: center;
+
+      img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+
+      p {
+        margin-top: 10px;
+        font-weight: 500;
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .btn-wrap {
+    margin-top: 40px;
+    .btn-more {
+      background: #0040a0;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 20px;
+      text-decoration: none;
+      &:hover {
+        background: #002d70;
+      }
+    }
+  }
+}
+
+
+/* 환타지아 소식 */
+.news {
+  background-color: #f6f6f6;
+  padding: 100px 0;
+
+  .news_wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+
+    // 공통 섹션 박스 스타일
+    .news__left,
+    .news__right {
+      flex: 1;
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h3 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #003b8e;
+        margin-bottom: 20px;
+        border-left: 4px solid #003b8e;
+        padding-left: 10px;
+      }
+    }
+
+    // 공지사항 리스트
+    .news__left {
+      ul {
+        li {
+          position: relative;
+          border-bottom: 1px solid #eee;
+          padding: 12px 0;
+
+          a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: #0051c4;
+            }
+          }
+
+          &::before {
+            content: "📢";
+            position: absolute;
+            left: -28px;
+            color: #0051c4;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+
+    // SNS 갤러리
+    .news__right {
+      .sns-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+
+        img {
+          width: 100%;
+          border-radius: 10px;
+          object-fit: cover;
+          aspect-ratio: 1 / 1;
+          transition: transform 0.3s ease, filter 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+    // footer
+.footer {
+  background-color: #1a2230;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.6;
+
+  &__banner {
+    width: 1200px;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+  }
+
+  &__bottom {
+    padding: 40px 0;
+
+    .footer__inner {
+      width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    /* 로고 */
+    .footer__logo-wrap {
+      flex: 0 0 auto;
+      .footer__logo {
+        width: 130px;
+      }
+    }
+
+    /* 회사정보 */
+    .footer__info {
+      flex: 1;
+      color: #ccc;
+      font-size: 14px;
+      line-height: 1.8;
+
+      .copyright {
+        color: #777;
+        font-size: 13px;
+        margin-top: 8px;
+      }
+    }
+
+    /* 오른쪽 영역 */
+    .footer__right {
+      text-align: right;
+
+      .footer__links {
+        margin-bottom: 10px;
+        li {
+          display: inline-block;
+          margin-left: 15px;
+
+          a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            &:hover {
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      .footer__sns {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+
+        a img {
+          width: 32px;
+          transition: opacity 0.3s ease;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

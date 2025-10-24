@@ -1,0 +1,232 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #fff;
+  color: #222;
+  transition: background 0.3s, color 0.3s;
+}
+
+section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+/* scroll progress */
+.progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #ff0033; width: 0; z-index: 1000; }
+
+/* cursor */
+.cursor {
+  position: fixed; width: 26px; height: 26px; border: 2px solid #ff0033;
+  border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%);
+  transition: width 0.15s, height 0.15s, border-color 0.3s;
+  z-index: 9999;
+}
+
+/* buttons */
+#scrollTop, #darkModeToggle {
+  position: fixed; bottom: 30px; width: 60px; height: 60px;
+  font-size: 24px; border: none; border-radius: 50%;
+  color: #fff; background: #222; cursor: pointer; z-index: 1000;
+  transition: background 0.3s;
+  &:hover { background: #ff0033; }
+}
+#scrollTop { right: 30px; }
+#darkModeToggle { right: 110px; }
+
+/* Intro */
+.intro {
+  background: radial-gradient(circle, #000 0%, #111 100%);
+  color: #fff; text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  .film-countdown {
+    position: absolute; inset: 0;
+    display: flex; justify-content: center; align-items: center;
+    background: #000;                    
+    z-index: 5;                          
+    
+    &.is-done { animation: fadeOut .6s ease forwards; }
+  }
+
+  .count-svg {
+    filter: drop-shadow(0 8px 30px rgba(0,0,0,.6));
+    .ring-fg {
+      stroke-dasharray: 565.48;          /* 2πr */
+      stroke-dashoffset: 565.48;
+      animation: ring-draw 3s ease-in-out forwards; 
+    }
+  }
+
+  .intro__content {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .6s ease, transform .6s ease;
+    &.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .intro__icon { font-size: 56px; margin-bottom: 10px; }
+    .intro__title { font-size: 48px; font-weight: 800; letter-spacing: 1px; }
+    .intro__subtitle { font-size: 18px; color: #ccc; margin-top: 8px; }
+  }
+}
+
+@keyframes ring-draw { to { stroke-dashoffset: 0; } }
+@keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+
+/* 다크모드 인트로 배경 유지 */
+body.dark .intro { background: radial-gradient(circle, #0e0f12 0%, #0b0c0f 100%); }
+
+
+/* movie section */
+.movie {
+  text-align: center; padding: 100px 0; background: #fafafa; color: #222;
+  
+  h2{ margin-bottom: 30px;}
+
+  .movie-list {
+    display: flex; justify-content: center; gap: 50px; margin-bottom: 60px;
+    .movie-item {
+      width: 280px; background: #fff; border-radius: 10px; padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      &:hover { transform: translateY(-6px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
+      img { width: 100%; border-radius: 8px; margin-bottom: 10px; }
+      .stars span {
+        font-size: 30px; color: #ccc; cursor: pointer; transition: color 0.3s;
+        &.active { color: gold; }
+      }
+    }
+  }
+
+  .goods-list {
+    display: flex; justify-content: center; gap: 50px;
+    .goods-item {
+      position: relative; width: 280px; background: #fff; border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; transition: transform 0.3s, box-shadow 0.3s;
+      &:hover { transform: translateY(-6px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
+      img { width: 100%; border-radius: 8px; margin-bottom: 10px; }
+      .heart {
+        position: absolute; top: 15px; right: 15px; font-size: 28px; color: #bbb;
+        background: transparent; border: none; cursor: pointer;
+        transition: color 0.3s, transform 0.2s;
+        &:hover { transform: scale(1.1); }
+        &.liked { color: #ff0033; animation: heart-pop 0.25s ease; }
+      }
+      .goods-controls {
+        display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 20px;
+        button { width: 30px; height: 30px; border: none; border-radius: 50%; background: #222; color: #fff; cursor: pointer; }
+        input { width: 40px; text-align: center; border: none; background: transparent; font-weight: bold; }
+      }
+    }
+  }
+}
+
+/* guestbook */
+.guestbook {
+  background: linear-gradient(135deg, #f2f4f8, #e9edf3);
+  h2{ margin-bottom: 20px;}
+  .guestbook-container {
+    display: flex; width: 1000px; border-radius: 20px; overflow: hidden; background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .guestbook-form, .guestbook-list { flex: 1; padding: 40px; }
+    .guestbook-form {
+      background: #e9edf3;
+      input, textarea { width: 100%; margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
+      button { width: 100%; padding: 10px; border: none; border-radius: 8px; background: #ff0033; color: #fff; cursor: pointer; }
+    }
+    .guestbook-list { overflow-y: auto;
+      li { background: #f7f8fa; margin-bottom: 10px; padding: 15px; border-radius: 8px;
+        strong { color: #ff0033; }
+      }
+    }
+  }
+}
+
+/* 🌙 다크모드  */
+body.dark {
+  background: #0e0f12;
+  color: #e9ecef;
+  transition: background 0.4s ease, color 0.4s ease;
+
+  .intro {
+    background: radial-gradient(circle, #0e0f12, #0b0c0f);
+  }
+
+  .movie {
+    background: #15171c;
+
+    h2 {
+        color: #ff4b5c;
+        transition: color 0.4s ease;
+      }
+
+    .movie-item,
+    .goods-item {
+      background: #1b1e24;
+      color: #e9ecef;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+    }
+    .goods-controls input {
+      color: #f5f5f5;
+    }
+  }
+  .guestbook {
+    background: linear-gradient(135deg, #14161b, #0f1115);
+
+    .guestbook-container {
+      background: #1b1e24;
+
+      .guestbook-form {
+        background: #1e2127;
+
+        input,
+        textarea {
+          background: #2a2d33;
+          color: #ddd; 
+          border: 1px solid #444;
+        }
+
+        button {
+          background: #ff0033;
+        }
+      }
+
+      .guestbook-list {
+        li {
+          background: #24272d;
+          color: #ddd;
+          strong {
+            color: #ff4b5c;
+          }
+        }
+      }
+    }
+  }
+  h1,
+  h2 {
+    color: #e9ecef;
+  }
+}
+
+/* 🌙☀️ 다크모드 버튼 애니메이션 */
+#darkModeToggle {
+  transition: transform 0.4s ease, opacity 0.3s ease;
+
+  &.switching {
+    transform: rotate(180deg) scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+
+
+/* animations */
+@keyframes ring-draw { to { stroke-dashoffset: 0; } }
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes heart-pop { 0%{transform:scale(1)}40%{transform:scale(1.4)}100%{transform:scale(1)} }
+@keyframes countdown { 0%{opacity:1;}100%{opacity:0;} }
