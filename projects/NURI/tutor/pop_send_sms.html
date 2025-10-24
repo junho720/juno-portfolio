@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="학점은행제 교육기관, 사회복지사, 보육교사, 학위 취득">
+    <meta name="description" content="">
+    <title>누리사이버교육원</title>
+    <link rel="stylesheet" href="../html/css/style2.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../html/js/script.js"></script>
+</head>
+
+<body class="">
+    <div class="pop_4" style="width: 500px;">
+        <style>
+            .table td.pl {
+                text-align: left;
+                padding-left: 15px;
+            }
+
+            .radio {
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+
+            .bl {
+                border: 1px solid #e1e1e1;
+            }
+        </style>
+        <div class="pop_top">
+            <h1>SMS 발송</h1>
+        </div>
+        <div class="pop_con">
+            <div class="border_box">
+                <h2>SMS 발송</h2>
+                <table class="table">
+                    <colgroup>
+                        <col width="80" />
+                        <col width="*" />
+                    </colgroup>
+                    <tr>
+                        <th>담당자</th>
+                        <td><input type="text" class="bl" name="sender_name" /></td>
+                    </tr>
+                    <tr>
+                        <th>회신번호</th>
+                        <td><input type="text" class="bl" name="sender" /></td>
+                    </tr>
+                    <tr height="80">
+                        <th>예약발송</th>
+                        <td class="rev">
+                            <p style="margin-bottom: 5px;">
+                                <span>
+                                    <input type="checkbox" name="reservation_yn" value="Y" class="radio" />예약설정
+                                </span>
+                                <input type="text" class="bl" name="send_date"
+                                    onclick="new CalendarFrame.Calendar(this, null, 40)" readonly style="width:75px;">
+                            </p>
+                            <p>
+                                <select name="send_hour" class="bl">
+                                    <!-- LOOP START 'hours' -->
+                                    <option value="{{hours.id}}">{{hours.name}}</option>
+                                    <!-- LOOP END 'hours' -->
+                                </select> 시
+                                <select name="send_minute" class="bl">
+                                    <!-- LOOP START 'minutes' -->
+                                    <option value="{{minutes.id}}">{{minutes.name}}</option>
+                                    <!-- LOOP END 'minutes' -->
+                                </select> 분
+                            </p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px; margin: 0 auto;">
+                                            <div
+                                                style="margin-top:5px;background:url(../html/images/sub/smsbg.gif) no-repeat;height:122px">
+                                                <textarea name="content"
+                                                    style="background:url(../html/images/sub/smsbg.gif) no-repeat center -20px;width:120px;height:85px;margin-top:20px;margin-left:0px;border-width:0px;overflow-y:auto;overflow-x:hidden;"
+                                                    onkeyup="checkbyte()">{{content}}</textarea>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td width="188px">
+                                        <style type="text/css">
+                                            .sp {
+                                                cursor: pointer;
+                                                float: left;
+                                                font-family: dotum;
+                                                font-size: 12px;
+                                                list-style: none;
+                                                width: 20px;
+                                                height: 20px;
+                                            }
+                                        </style>
+                                        <script>
+                                            addEvent("onload", function setAction() {
+                                                var list = document.getElementById("spec").getElementsByTagName(
+                                                    "li");
+                                                for (var i = 0; i < list.length; i++) {
+                                                    list[i].onclick = function () {
+                                                        setSpecial(this);
+                                                    }
+                                                }
+                                            });
+
+                                            function setSpecial(el) {
+                                                document.forms['form1']['content'].value += el.innerHTML.replace(
+                                                    /&lt;/g, "<").replace(/&gt;/g, ">");
+                                                checkbyte();
+                                                document.forms['form1']['content'].focus();
+                                            }
+                                        </script>
+                                        <ul id="spec"
+                                            style="margin:0 auto; float:left;width:180px;background:#f4f4f4;padding:8px 0 0 8px">
+                                            <li class="sp">★</li>
+                                            <li class="sp">☆</li>
+                                            <li class="sp">☎</li>
+                                            <li class="sp">☏</li>
+                                            <li class="sp">☜</li>
+                                            <li class="sp">☞</li>
+                                            <li class="sp">※</li>
+                                            <li class="sp">♥</li>
+                                            <li class="sp">♡</li>
+                                            <li class="sp">♣</li>
+                                            <li class="sp">♠</li>
+                                            <li class="sp">♤</li>
+                                            <li class="sp">♧</li>
+                                            <li class="sp">♨</li>
+                                            <li class="sp">ㆀ</li>
+                                            <li class="sp">♩</li>
+                                            <li class="sp">♪</li>
+                                            <li class="sp">♬</li>
+                                            <li class="sp">■</li>
+                                            <li class="sp">□</li>
+                                            <li class="sp">▣</li>
+                                            <li class="sp">▤</li>
+                                            <li class="sp">▦</li>
+                                            <li class="sp">▨</li>
+                                            <li class="sp">▩</li>
+                                            <li class="sp">▒</li>
+                                            <li class="sp">▲</li>
+                                            <li class="sp">△</li>
+                                            <li class="sp">▶</li>
+                                            <li class="sp">▷</li>
+                                            <li class="sp">▼</li>
+                                            <li class="sp">▽</li>
+                                            <li class="sp">◀</li>
+                                            <li class="sp">◁</li>
+                                            <li class="sp">◆</li>
+                                            <li class="sp">◇</li>
+                                            <li class="sp">◈</li>
+                                            <li class="sp">●</li>
+                                            <li class="sp">○</li>
+                                            <li class="sp">◎</li>
+                                            <li class="sp">⊙</li>
+                                            <li class="sp">◐</li>
+                                            <li class="sp">◑</li>
+                                            <li class="sp">←</li>
+                                            <li class="sp">↑</li>
+                                            <li class="sp">→</li>
+                                            <li class="sp">↓</li>
+                                            <li class="sp">⇒</li>
+                                            <li class="sp">§</li>
+                                            <li class="sp">Ø</li>
+                                            <li class="sp">∀</li>
+                                            <li class="sp">∃</li>
+                                            <li class="sp">∏</li>
+                                            <li class="sp">∞</li>
+                                            <li class="sp">∧</li>
+                                            <li class="sp">∪</li>
+                                            <li class="sp">∬</li>
+                                            <li class="sp">∴</li>
+                                            <li class="sp">∽</li>
+                                            <li class="sp">≠</li>
+                                            <li class="sp">⊃</li>
+                                            <li class="sp">￠</li>
+                                            <li class="sp">￥</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <div style="text-align: center;">
+                    <p style="margin-bottom: 15px;">
+                        <span>
+                            <strong>*</strong> 글자수 <font id="byte" color="#EE6C22" style="font-weight:bold;">0</font> /
+                            80 Byte
+                        </span>
+                    </p>
+
+                    <a href="#" class="btn"
+                        style="display:inline-block; background-color: #8276f4; color: #fff;">문자발송</a>
+                    <a href="javascript: window.close();" class="btn" style="display:inline-block;">닫기</a>
+                </div>
+                <div style="margin-top:20px;">
+                    <table>
+                        <tr height="50">
+                            <td>
+                                <a href="javascript:void(0);" onclick="sendSearch();"><img
+                                        src="../html/images/btn/btn_targetchoice.png" class="btn" alt="대상선택" /></a>
+                                <a href="javascript:void(0);" onclick="removeBtnContents();"><img
+                                        src="../html/images/btn/btn_seldel_s.png" class="btn" alt="선택삭제" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="send_list" size="10" style="width:438px;height:165px;padding:10px;"
+                                    ondblclick="removeContent()" multiple>
+                                    <!-- LOOP START 'send_list' -->
+                                    <option value="{{send_list.user_id}}">{{send_list.user_name}}
+                                        [{{send_list.user_id}}]</option>
+                                    <!-- LOOP END 'send_list' -->
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

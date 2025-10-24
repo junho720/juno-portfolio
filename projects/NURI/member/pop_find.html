@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="학점은행제 교육기관, 사회복지사, 보육교사, 학위 취득">
+    <meta name="description" content="">
+    <title>누리사이버교육원</title>
+    <link rel="stylesheet" href="../html/css/style2.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../html/js/script.js"></script>
+</head>
+
+<body class="">
+    <style>
+        body {
+            min-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .pop_4 a.btn2 {
+            width: 60px;
+            margin: 15px auto;
+            background-color: #8276f4;
+            color: #fff;
+
+        }
+
+        .pop_4 a.btn3 {
+            display: inline-block;
+            margin: 15px 5px;
+        }
+    </style>
+    <div class="pop_4" style="width: 500px;">
+        <div class="pop_top">
+            <h1>아이디/비밀번호 찾기</h1>
+        </div>
+        <div class="pop_con">
+            <div class="border_box" style="text-align: center;">
+                <!-- IF START 'find' -->
+                <p>아이디 찾기에 성공하였습니다.<br />고객님의 아이디는 <strong>{{info.id}}</strong>입니다.</p>
+                <!-- IF END 'find' -->
+                <!-- IFNOT START 'find' -->
+                <p>일치하는 정보가 없습니다.<br />정보를 정확히 입력 후 시도해 보세요.</p>
+                <!-- IFNOT END 'find' -->
+                <p>
+                    <a href="javascript:window.close()" class="btn btn2">확인</a>
+                </p>
+                <div style="margin-top: 15px;">
+                    <a href="javascript: window.close();" class="btn" style="margin: 0 auto;">닫기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pop_4" style="width: 500px;">
+        <div class="pop_top">
+            <h1>아이디/비밀번호 찾기</h1>
+        </div>
+        <div class="pop_con">
+            <div class="border_box" style="text-align: center;">
+                <p style="margin-top:18px">
+                    {{msg}}
+                    정보확인이 취소 되었습니다.
+                </p>
+                <p>
+                    <a href="javascript:window.close()" class="btn btn2">확인</a>
+                </p>
+                <form name="form1" method="post">
+                    <input type="hidden" name="mode" value="">
+                    <input type="hidden" name="type" value="email">
+                    <input type="hidden" name="id" value="{{id}}">
+                    <input type="hidden" name="name" value="{{name}}">
+                    <input type="hidden" name="email" value="{{email}}">
+
+                    <p>회원 가입 시 등록해 주신 메일주소 <br /><strong>({{info.email}})</strong>로
+                        임시비밀번호를<br />발송해 드립니다. 메일로 받으시겠습니까?
+                    </p>
+                    <p>
+                        <a href="javascript:void(0)" class="btn btn2 btn3"
+                            onclick="document.forms['form1']['mode'].value = 'pw_y'; document.forms['form1'].submit();">예</a>
+                        <a href="javascript:void(0)" class="btn btn2 btn3" style="background-color: #bbb"
+                            onclick="document.forms['form1']['mode'].value = 'pw_n'; document.forms['form1'].submit();">아니요</a>
+                    </p>
+                </form>
+                <form name="form1" method="post">
+                    <input type="hidden" name="mode" value="">
+                    <input type="hidden" name="type" value="sms">
+                    <input type="hidden" name="id" value="{{id}}">
+                    <input type="hidden" name="name" value="{{name}}">
+                    <input type="hidden" name="email" value="{{email}}">
+
+                    <p>회원 가입 시 등록해 주신 휴대전화번호 <br /><strong>({{mobile_Chcek}})</strong>로
+                        임시비밀번호를<br />발송해 드립니다. SMS 로
+                        받으시겠습니까?</p>
+                    <p>
+                        <a href="javascript:void(0)" class="btn btn2 btn3"
+                            onclick="document.forms['form1']['mode'].value = 'pw_y'; document.forms['form1'].submit();">예</a>
+                        <a href="javascript:void(0)" class="btn btn2 btn3" style="background-color: #bbb"
+                            onclick="document.forms['form1']['mode'].value = 'pw_n'; document.forms['form1'].submit();">아니요</a>
+                    </p>
+                </form>
+
+                <p>일치하는 정보가 없습니다.<br />정보를 정확히 입력 후 시도해 보세요.<br />&nbsp;</p>
+                <p>
+                    <a href="javascript:window.close()" class="btn btn2">확인</a>
+                </p>
+
+                <div style="margin-top: 15px;">
+                    <a href="javascript: window.close();" class="btn" style="margin: 0 auto;">닫기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop_4" style="width: 500px;">
+        <div class="pop_top">
+            <h1>아이디/비밀번호 찾기</h1>
+        </div>
+        <div class="pop_con">
+            <div class="border_box" style="text-align: center;">
+                <p style="margin-top:18px">
+                    정보확인이 취소 되었습니다.
+                </p>
+                <p>
+                    <a href="javascript:window.close()" class="btn btn2">확인</a>
+                </p>
+                <div style="margin-top: 15px;">
+                    <a href="javascript: window.close();" class="btn" style="margin: 0 auto;">닫기</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

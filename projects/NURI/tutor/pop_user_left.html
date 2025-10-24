@@ -1,0 +1,33 @@
+<style type="text/css">
+.selbox{ overflow-x: hidden; overflow-y: scroll; height: 145px; font-size: 12px; color: #1a1a1a; border: 1px solid #e1e1e1; border-top: 2px solid #8276f4; padding-left: 10px;}
+h3{padding: 7px 0;}
+.paging { margin-top: 10px;}
+.paging table{margin: 0 auto;}
+.paging table .page_number_btn, .paging table .page_number_btn_on{
+  width: 14px;  height: 14px;  font-size: 10px;  line-height: 14px;   margin: 0 5px;}
+.paging table .page_prev_btn,.paging table .page_next_btn{
+  width: 20px;  height: 20px;  background-size: 8px;}
+.paging table .page_first_btn,.paging table .page_last_btn{
+  width: 20px;  height: 20px;  background-size: 12px;}
+body{min-width: 100% !important;}
+</style>
+<h3>대상회원</h3>
+<form method="POST" name="form2">
+<div>
+	<select name="left" size="20" style="width:100%;" multiple class="selbox" ondblclick="parent.addContent();">
+		<!-- LOOP START 'list' -->
+		<option value="{{list.id}}">{{list.name}} [{{list.id}}]</option>
+		<!-- LOOP END 'list' -->
+	</select>
+</div>
+</form>
+<script language="JavaScript">
+<!--
+	function setLeft() {
+		parent.leftElement = document.forms['form2']['left'];
+	}
+
+if(window.addEventListener) window.addEventListener("load", setLeft, false);
+else if(window.attachEvent) window.attachEvent("onload", setLeft);
+//-->
+</script>

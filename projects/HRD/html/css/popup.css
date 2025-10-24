@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+.popup_wrap {
+    background-color: #fff;
+    line-height: 1.8;
+    margin: 0 auto;
+    overflow-x: hidden;
+    height: 100%;
+    font-family: NanumSquareAcr; 
+}
+.popup_wrap .popup_top{
+    position: relative;
+    background-color: #021a57;
+}
+.popup_wrap .popup_top h1{
+    padding: 20px;
+    font-family: SEBANG_Gothic_Bold;
+    font-size: 22px;
+    color: #fff;
+}
+.popup_wrap .popup_top .head_close{
+    position: absolute;
+    right: 13px;
+    top: 23px;
+}
+.popup_wrap .popup_con{
+    padding: 15px;
+    position: relative;
+}
+.popup_wrap .popup_con .border_box{
+    border: 1px solid #dedede;
+    padding: 15px;
+}
+.popup_wrap .popup_con .border_box .list_border{
+    overflow-x:hidden;
+    overflow-y:auto; 
+}
+.popup_wrap .popup_con p+p{
+    margin-top: 15px;
+}
+.pop800{
+    width: 800px;
+}
+.pop500{
+    width: 500px;
+}
+.txt_box{
+    border: 1px solid #d7d7d7;
+    padding: 15px;
+    margin : 18px 0;
+    line-height: 1.8;
+    font-size: 14px;
+}
+/* 팝업 테이블 */
+.popup_wrap .table3 tr th,
+.popup_wrap .table3 tr td{
+    font-size: 12px;
+    padding: 8px;
+}
+.popup_wrap .table3 th{
+    background-color: #f0f3f3;
+}
+.popup_wrap .table3 tr:first-child{
+    border-top: 1px solid #dedede;
+}
+.popup_wrap .table3 input[type="text"]{
+    width: 50px;
+}
+.popup_wrap .btn3{
+    font-size: 14px;
+    background-color: #dedede;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+}
+.popup_wrap .btn4{
+    background-color: #eee;
+    padding: 7px;
+    height: 30px;
+    border: 1px solid #bbb;
+    box-sizing: border-box;
+}
+.popup_wrap input[type="file"]{
+    border: none;
+    font-size: 13px;
+}
+
+.pop_sm .popup_top h1{
+    padding: 10px;
+    padding-left: 20px;
+}
+.pop_sm .popup_top .head_close {
+    top: 13px;
+}

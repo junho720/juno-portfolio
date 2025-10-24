@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>:::한국HRD원격평생교육원에 오신것을 환영합니다:::</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css" />
+  <link rel="stylesheet" href="../html/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../html/css/popup.css" type="text/css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <script src="../html/js/script.js"></script>
+  <script src="../html/js/slideCtrl01.js"></script>
+
+</head>
+
+<body class="">
+  <div class="popup_wrap pop500 pop_sm">
+    <div class="popup_top">
+      <h1>아이디 중복확인</h1>
+      <a href="javascript:void(0);" class="head_close" onclick="self.close()">
+        <img src="../html/images/common/btn_close.svg" alt="레이어 닫기">
+      </a>
+    </div>
+    <div class="popup_con">
+      <div class="border_box">
+        <table>
+          <tr>
+              <td>
+                  <table style="text-align: center;">
+                    <tr height="70">
+                          <td >
+                              아이디
+                          </td>
+                          <td style="width: 230px;">
+                            <input id="SearchUserName" name="SearchUserName" type="text" value="DDD" style="width: 140px;">
+                        </td>
+                        <td style="text-align: left;">
+                            <a class="btn3" onclick="submit();">중복확인
+                        </td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+          <tr>
+              <td height="10">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <table style="text-align: center;">
+                      <tr>
+                          <td>
+                              <div class="primary">
+                                  홍길동
+                                  <span style="color: #333;">는(은) 사용 가능 한 아이디 입니다.</span></div>
+                          </td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+          <tr>
+              <td height="25">
+                  <table style="text-align: center;">
+                      <tr>
+                          <td>
+                            이 아이디를 사용하시겠습니까?
+                          </td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <table style="margin-top: 10px;">
+                      <tr>
+                          <td align="center">
+                                  <a class="btn3" onclick="fnSelectUserName();">ID 사용하기
+                          </td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <table>
+                      <tr>
+                          <td>
+                              <div align="center" class="primary">
+                                  홍길동
+                                  <span style="color: #333;">는(은) 사용중입니다.</span>
+                              </div>                            
+                          </td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

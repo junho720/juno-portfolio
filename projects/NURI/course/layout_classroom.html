@@ -1,0 +1,63 @@
+<!-- INCLUDE FILE 'layout/header.html' -->
+
+<body id="classroom">
+
+	<!-- S: toparea -->
+	<!-- INCLUDE FILE 'layout/top.html' -->
+	<!-- // E: toparea -->
+
+	<div id="main_container">
+		<div id="leftmenus">
+			<!-- EXECUTE FILE '../member/salogin.jsp?pt={{pt}}' -->
+
+			<!-- IFNOT END 'mainpage' -->
+
+			<!-- S: quickmenu -->
+			<!-- // E: quickmenu -->
+
+			<ul class="tabBtn tab10">
+				<li>
+					<a href="index.jsp" class="on">
+						<span>학습방</span>
+					</a>
+				</li>
+				<li><a href="notice_list.jsp">
+						<span>과목공지사항</span>
+					</a></li>
+				<li><a href="evaluation.jsp">
+						<span>평가현황</span>
+					</a></li>
+				<li><a href="note_list.jsp">
+						<span>학습노트</span>
+					</a></li>
+				<li><a href="dissent_list.jsp">
+						<span>성적이의신청</span>
+					</a></li>
+				<li><a href="reference_list.jsp">
+						<span>과목자료실</span>
+					</a></li>
+				<li><a href="qna_list.jsp">
+						<span>과목 Q&A</span>
+					</a></li>
+				<li><a href="survey_list.jsp">
+						<span>강의설문</span>
+					</a></li>
+				<li><a href="error_list.jsp">
+						<span>콘텐츠 오류신고</span>
+					</a></li>
+			</ul>
+
+		</div>
+
+		<!-- S: contentsarea -->
+		<div id="subcontents">
+			<!-- INCLUDE NAME 'BODY' -->
+		</div>
+		<!-- // E: contentsarea -->
+
+	</div>
+
+
+	<!-- S: bottomarea -->
+	<!-- INCLUDE FILE 'layout/bottom.html' -->
+	<!-- // E: bottomarea -->

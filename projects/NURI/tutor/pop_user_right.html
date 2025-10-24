@@ -1,0 +1,67 @@
+<style type="text/css">
+	.selbox {
+		overflow-x: hidden;
+		overflow-y: scroll;
+		height: 145px;
+		font-size: 12px;
+		color: #1a1a1a;
+		border: 1px solid #e1e1e1;
+		border-top: 2px solid #8276f4;
+		padding-left: 10px;
+	}
+
+	h3 {
+		padding: 7px 0;
+	}
+
+	.btn_seldel {
+		position: absolute;
+		left: 150px;
+		top: 2px;
+	}
+
+	.btn_seldel img {
+		width: 60px;
+	}
+
+	body {
+		min-width: 100% !important;
+	}
+</style>
+
+<h3>선택회원</h3>
+<form method="POST" name="form1">
+	<input type="hidden" name="idx" value="">
+	<div>
+		<select name="right" size="20" style="width:100%;" multiple class="selbox" ondblclick="parent.removeContent()">
+		</select>
+		<p class="btn_seldel">
+			<a href="javascript:void(0);" onclick="parent.removeBtnContents();">
+				<img src="../common/images/btn/btn_seldel.png" alt="선택삭제" /></a>
+		</p>
+		<div style="text-align:right;margin-top:10px;">
+			<a href="javascript:void(0);" onclick="parent.selectUser();">
+				<img src="../common/images/popup/btn_select_s.png" alt="" /></a>
+		</div>
+	</div>
+</form>
+<script language="JavaScript">
+<!--
+	function setRight() {
+		parent.rightElement = document.forms['form1']['right'];
+		parent.setOpenerValue();
+	}
+
+	function setValues() {
+		var tgt = document.forms['form1']['right'];
+		var arr = new Array();
+		for(var i=0; i<tgt.length; i++) {
+			arr[i] = tgt[i].value;
+		}
+		document.forms['form1']['user_idx'].value = arr.join(",");
+	}
+
+if(window.addEventListener) window.addEventListener("load", setRight, false);
+else if(window.attachEvent) window.attachEvent("onload", setRight);
+//-->
+</script>

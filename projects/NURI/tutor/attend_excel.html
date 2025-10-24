@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="학점은행제 교육기관, 사회복지사, 보육교사, 학위 취득" />
+  <meta name="description" content="" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+  <title>누리사이버교육원</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <script src="../html/js/m_swiper.js"></script>
+  <script src="../html/js/m_script.js"></script>
+
+  <link href="../html/css/common.css" rel="stylesheet" type="text/css" />
+  <link href="../html/css/style2.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body id="m_body">
+  <div class="wrapper inner" style="width: 1600px">
+    <main class="m_sub">
+      <div class="big_table3 mspace">
+        <p style="margin-top: 30px;">{{cinfo.year}}년 / {{cinfo.semester}} / {{cinfo.term}} / {{cinfo.name}}</p>
+        <p>학점 : {{cinfo.credit}}점</p>
+        <p>○ : 출석, &nbsp;&nbsp;&nbsp;X : 결석,&nbsp;&nbsp;&nbsp; - : 미진행</p>
+        <table>
+          <colgroup>
+          </colgroup>
+          <thead>
+            <tr height="30">
+              <th rowspan="3">번호</th>
+              <th rowspan="3">이름</th>
+              <th rowspan="3" valign="middle">아이디<br />(학번)</th>
+              <th rowspan="3">반</th>
+              <th colspan="{{l_list.cowspan}}" style="border-bottom: 1px solid #ccc;">{{l_list.week}}주</th>
+              <th rowspan="3">출석<br />횟수</th>
+              <th rowspan="3">결석<br />횟수</th>
+              <th rowspan="3">진도(%)</th>
+              <th rowspan="3">출석<br />점수</th>
+              <th rowspan="3">과제<br />점수</th>
+              <th rowspan="3">천자칼럼<br />점수</th>
+              <th rowspan="3">Q&A<br />점수</th>
+              <th rowspan="3">수시퀴즈<br />점수</th>
+              <th rowspan="3">중간고사<br />점수</th>
+              <th rowspan="3">기말고사<br />점수</th>
+              <th rowspan="3">총점</th>
+              <th rowspan="3">등급</th>
+            </tr>
+            <tr height="30">
+              <th style="border: 0;">{{l_list.start_date}}</th>
+            </tr>
+            <tr height="30">
+              <th style="border-top: 1px solid #ccc;">{{l_list.inning}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr height="40">
+              <td>{{list.__ord}}</td>
+              <td>
+                {{list.name}}
+              </td>
+              <td>
+                {{list.user_id}}
+              </td>
+              <td>
+                {{list.class_name}}
+              </td>
+              <td>{{sub.att_stat}}</td>
+              <td>{{list.att_y}}</td>
+              <td>{{list.att_n}}</td>
+              <td>{{list.ratio}}</td>
+              <td>{{list.attend_score}}</td>
+              <td>{{list.homework_score}}</td>
+              <td>{{list.forum_score}}</td>
+              <td>{{list.qna_score}}</td>
+              <td>{{list.quizroom_score}}</td>
+              <td>{{list.m_exam_score}}</td>
+              <td>{{list.f_exam_score}}</td>
+              <td>{{list.total_score}}</td>
+              <td>{{list.grade}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="text-align: center;">
+          <a href="javascript:window.close()" class="button">닫기</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

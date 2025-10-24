@@ -1,0 +1,83 @@
+<style type="text/css">
+.ntable {  float: left; width: 840px; margin-top: 35px; overflow-x: hidden; overflow-y: scroll;  height: 600px;}
+.ntable table tr th{ font-size: 14px; border-top: 2px solid #1a1a1a; border-bottom: 1px solid rgb(189, 189, 189); background-color: #f1f1f1;}
+.ntable table tr td{ padding: 10px; line-height: 1.2; font-size: 12px; text-align: center; border-bottom: 1px solid #e1e1e1; font-weight: 300;}
+.ntable table tr td.menucontents{ text-align: left; font-size: 14px;}
+.ntable table tr td.lastmod{line-height: 1.5;}
+.sharenote{position:absolute; top: 10px; font-size:14px; color:#444;  }
+.sharenote span{margin:0 0 0 7px;}
+.submit{position: absolute; right: 15px;}
+.submit a{text-decoration: none; display: block; box-sizing: border-box; text-align: center; padding: 8px; border-radius: 5px; background-color: #8276f4; color: #fff; font-size: 17px; line-height: 15px; width: 100px;}
+</style>
+
+<p class="sharenote">학습노트 공유하기<span><input type="checkbox" class="checkbox" value="Y" onclick="setPublic(this);" /> 예</span></p>
+<p class="submit">
+	<a href="javascript:void(0)" onclick="OpenWindow('pop_note_write.jsp?cuid=24081&week=1&inn=1', '', 330, 390)" class="btn">등록</a>
+</p>
+<div id="ntable" class="ntable">
+	<table cellpadding="0" cellspacing="0" class="boardlist">
+		<colgroup width= "700px">
+			<col width="15%"/>
+			<col width="65%"/>
+			<col width="20%"/>
+		</colgroup>
+		<tr height="30">
+			<th>번호</th>
+			<th>메뉴내용</th>
+			<th class="end">최종 수정일</th>
+		</tr>
+		<!-- LOOP START 'list' -->
+		<input type="hidden" name="mode" value="">
+		<input type="hidden" name="oid" value="0">
+		<tr class="{{list.ROW_CLASS}}">
+			<td class="number">{{list.__ord}}</td>
+			<td class="menucontents">
+				<div style="width: 526px; word-wrap:break-word;display:block;" id="cmt{{list.id}}">
+				{{list.content_conv}}
+				</div>
+			</td>
+			<td class="lastmod" style="vertical-align:middle;">
+				{{list.mod_date}}
+				<div id="btn_on51250" style="display:blcok;">
+					<p><a href="javascript:void(0)" onclick="toggleModify(this, preNode); toggleModify(this, '51250');"><img src="../html/images/sub/btn_modify_s.png" alt="수정" /></a>
+					<a href="javascript:void(0)" onclick="BtnConfirmGo('삭제', 'pop_note_delete.jsp?id=51250&cuid=25910&week=1&inn=1');"><img src="../html/images/sub/btn_delete_s.png" alt="삭제" /></a></p>
+					</div>
+					<div id="btn_off51250" style="display:none;">
+					<p><input type="image" src="../html/images/sub/btn_modify_s.png" alt="수정" />
+					<a href="javascript:void(0)" onclick="toggleModify(this, preNode); toggleModify(this, '51250');"><img src="../html/images/sub/btn_cancel_s.png" alt="취소" /></a></p>
+				</div>
+			</td>
+		</tr>
+		<!-- LOOP END 'list' -->
+		<!-- IFNOT START 'list' -->
+		<tr>
+			<td align="center" colspan="3">등록된 학습노트가 없습니다.</td>
+		</tr>
+		<!-- IFNOT END 'list' -->
+	</table>
+</div>
+<script language="JavaScript">
+<!--
+if(window.addEventListener) window.addEventListener("load", resize, false);
+else if(window.attachEvent) window.attachEvent("onload", resize);
+function resize() {
+	var h;
+	if(el = parent.document.getElementById("right")) {
+		if(isIE) h = document.body.scrollHeight;
+		else h = document.documentElement.scrollHeight;
+		if(h > 10) el.height = h;
+		else el.height = 0;
+	}
+}
+//-->
+</script>
+
+
+<script>
+addEvent("onload", function() { 
+	if(GetCookie("note_top")) 
+		document.getElementById("ntable").scrollTop = GetCookie("note_top"); 
+		SetCookie("note_top", 0);
+	}
+);
+</script>

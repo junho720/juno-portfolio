@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>:::한국HRD원격평생교육원에 오신것을 환영합니다:::</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css" />
+    <link rel="stylesheet" href="../html/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="../html/css/popup.css" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="../html/js/script.js"></script>
+    <script src="../html/js/slideCtrl01.js"></script>
+
+</head>
+
+<body class="">
+    <style>
+        .float p {
+            float: left;
+            height: 38px;
+            line-height: 38px;
+            width: 42%;
+            margin-left: 35px;
+            font-size: 14px;
+        }
+
+        .popup_wrap .float p+p {
+            margin-top: 0;
+        }
+
+        .btn2 {
+            font-size: 14px;
+        }
+    </style>
+    <form method="post" name="frm_order" enctype="multipart/form-data">
+        <input type="hidden" id="CourseName" name="CourseName" value="">
+        <input type="hidden" id="userid" name="userid" value="bmikhjh">
+        <input type="hidden" id="gbn" name="gbn" value="up">
+        <input type="hidden" id="idx" name="idx" value="92">
+        <div class="popup_wrap pop500">
+            <div class="popup_top">
+                <h1>기본정보 확인</h1>
+                <a href="javascript:void(0);" class="head_close" onclick="self.close()">
+                    <img src="../html/images/common/btn_close.svg" alt="레이어 닫기">
+                </a>
+            </div>
+            <div class="popup_con">
+                <div class="border_box">
+                    <table class="table table3">
+                        <tbody>
+                            <tr>
+                                <th>이름</th>
+                                <td>
+                                    <div>
+                                        <input class="i_text_50" title="" type="text" id="OrgName" name="OrgName"
+                                            value="홍길동">
+                                    </div>
+                                </td>
+                                <th>연락처</th>
+                                <td>
+                                    <select id="MobilePIN_Crypted1" name="MobilePIN_Crypted1" value="010">
+                                        <option value="" selected="selected">선택</option>
+                                        <option value="010" selected="">010</option>
+                                        <option value="011">011</option>
+                                        <option value="016">016</option>
+                                        <option value="017">017</option>
+                                        <option value="018">018</option>
+                                        <option value="019">019</option>
+                                    </select>
+                                    <input id="MobilePIN_Crypted2" name="MobilePIN_Crypted2" class="i_text_50" title=""
+                                        type="text" value="4199" maxlength="4">
+                                    -<input id="MobilePIN_Crypted3" name="MobilePIN_Crypted3" class="i_text_50" title=""
+                                        type="text" value="2533" maxlength="4">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>주소</th>
+                                <td colspan="3" style="text-align: left;">
+                                    <p>
+                                        <input title="" type="text" id="m_Zip_Code" name="m_Zip_Code" maxlength="3"
+                                            readonly="">
+                                        &nbsp;- &nbsp;<input title="" type="text" id="m_Zip_Code1" name="m_Zip_Code1"
+                                            maxlength="3" readonly="">
+                                        <a href="javascript:open_zipcode();" class="btn4"
+                                            style="margin-left:10px">주소찾기</a>
+                                    </p>
+                                    <p>
+                                        <input title="" type="text" id="m_Addr1" name="m_Addr1" style="width:250px">
+                                    </p>
+                                    <p>
+                                        <input title="" type="text" id="m_Addr2" name="m_Addr2" style="width:250px">
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="txt_box">
+                        <p class="primary"> * 추가정보 입력</p>
+                        <p class="warn">1. 업로드 하실 증명사진의 파일명을 이름_아이디의 형식으로 바꿔주세요.<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;(예) 김한국_koreahrd</p>
+                        <p class="warn">2. 사진사이즈를 아래와 같이 바꿔주세요.<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;3.5x4.5(140x180 pixel) 파일용량 100kb 미만</p>
+                    </div>
+                    <table class="table table3" style="margin-bottom: 10px;">
+                        <tbody>
+                            <tr>
+                                <th>증명사진<br>업로드</th>
+                                <td style="text-align: left;">
+                                    <input type="file" id="file_name" name="file_name" class="input" value=""
+                                        style="width:250px;">
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th>영문이름</th>
+                                <td style="text-align: left;">
+                                    <input title="" type="text" id="E_Name" name="E_Name" value="" style="width:150px">
+                                    <b> 예) Kim Han Kook </b>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="float clearfix">
+                        <p>
+                            <input type="checkbox" id="private_check" name="private_check"
+                                style="margin-right: 5px;">개인정보보호정책에 동의함
+                        </p>
+                        <p>
+                            <a href="../home/personal_policy.html" class="btn3">개인정보보호정책</a>
+                        </p>
+                        <p style="margin-top: 10px; margin-left: 158px;">
+                            <a class="btn btn2">신청하기</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

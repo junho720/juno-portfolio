@@ -1,0 +1,82 @@
+<script type="text/javascript" src="../common/js/dtree/dtree.js"></script>
+<link rel="StyleSheet" href="../common/js/dtree/dtree.css" type="text/css" />
+
+<!-- S: popupwrap -->
+<body class="pop_body2">
+    <div class="pop_2">
+        <h1>학습노트</h1>
+        <div class="con note_view">
+            <h3 class="sub">{{info.course_name}}</h3>
+            <p class="close">
+                <a href="javascript: window.close();" class="close">닫기</a>
+            </p>
+        </div>
+        <div class="con note_view2 clearfix" style="height: 680px;">
+            <div class="filelist">
+                <div class="scrollbox">
+                    <div>
+                        <nobr><span><a href="javascript: mmd.openAll();" style="font-size:11px">전체열기</a> | <a
+                                    href="javascript: mmd.closeAll();" style="font-size:11px">전체닫기</a></span></nobr>
+                    </div>
+                    <div class="menuTable">
+                        <script type="text/javascript">
+
+                            mmd = new dTree('mmd');
+                            mmd.useCookies - false;
+                            mmd.add("-", "_ROOT_", "강의목차", "", "", "", "");
+                            <!-- LOOP START 'weeks' -->
+                            mmd.add("w_{{weeks.week}}", "-", "{{weeks.week}}주차", "", "", "");
+                            <!-- LOOP END 'weeks' -->
+                            <!-- LOOP START 'lessons' -->
+                            mmd.add("l_{{lessons.week}}_{{lessons.inning}}", "w_{{lessons.week}}", "{{lessons.inning}}차시", "pop_note_right.jsp?cuid={{cuid}}&week={{lessons.week}}&inn={{lessons.inning}}", "", "right");
+                            <!-- LOOP END 'lessons' -->
+                            document.write(mmd);
+                            mmd.closeAll();		
+                            //mmd.openAll();
+                            <!-- IF START 'lessons' -->
+                            mmd.openTo("l_{{week}}_{{inn}}", true);
+                            <!-- IF END 'lessons' -->
+                            
+                        </script>
+                        <div><span class="menuRight"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="note_table">
+                <iframe name="right" id="right" src="pop_note_right.jsp?cuid={{cuid}}&week={{week}}&inn={{inn}}" width="100%" frameborder="0" scrolling="no" height="593"></iframe>
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- // E: popupwrap -->
+
+<style type="text/css">
+    .dtreeSub {
+        padding:0px;
+        margin-bottom:20px;
+        border:1px solid #d1d1d1;
+    }
+    .topTable {
+        height:30px;
+        text-align:left;
+        margin-bottom:2px;
+    
+    }
+    .topTable span {
+        height:20px;
+        display:block;
+        padding:10px 10px 0 10px;
+        font-size:11px;
+        border-bottom:1px solid #d1d1d1;
+    }
+    .menuTable {
+        padding:10px 0 0 10px;
+    }
+    .menuRight {
+        display:block;
+        width:100%;
+        height:10px;
+    }
+    </style>

@@ -1,0 +1,19 @@
+<body class="pop_body" style="min-width: 350px; width: 350px;">
+    <form name="form1" method="post">
+        <div class="pop_3" >
+            <h1>학습노트 등록</h1>
+            <div class="con on">
+                <h2 class="h_img">{{info.course_name}} 학습노트</h2>
+                <p class="class">* {{week}}주 {{inn}}차시</p>
+                <div class="txt_wrap">
+                    <textarea name="content"></textarea>
+                </div>
+                <div class="btn_wrap">
+                    <input type="image" src=../common/images/sub/btn_resist_s.png alt="등록">
+                    <a href="javascript: window.close();"><img src="../common/images/sub/btn_cancel_s2.png" alt="취소"></a>
+                </div>
+            </div>            
+        </div>
+    </form> 
+    {{form_script}}       
+</body>

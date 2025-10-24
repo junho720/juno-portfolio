@@ -1,0 +1,248 @@
+<script language="javascript" type="text/javascript">
+    (function ($) {
+        $.fn.extend({
+            center: function (options) {
+                var options = $.extend({ // Default values
+                    inside: window, // element, center into window
+                    transition: 0, // millisecond, transition time
+                    minX: 0, // pixel, minimum left element value
+                    minY: 0, // pixel, minimum top element value
+                    withScrolling: true, // booleen, take care of the scrollbar (scrollTop)
+                    vertical: true, // booleen, center vertical
+                    horizontal: true // booleen, center horizontal
+                }, options);
+                return this.each(function () {
+                    var props = {
+                        position: 'absolute'
+                    };
+                    if (options.vertical) {
+                        var top = ($(options.inside).height() - $(this).outerHeight()) / 2;
+                        if (options.withScrolling) top += $(options.inside).scrollTop() || 0;
+                        top = (top > options.minY ? top : options.minY);
+                        $.extend(props, {
+                            top: top + 'px'
+                        });
+                    }
+                    if (options.horizontal) {
+                        var left = ($(options.inside).width() - $(this).outerWidth()) / 2;
+                        if (options.withScrolling) left += $(options.inside).scrollLeft() || 0;
+                        left = (left > options.minX ? left : options.minX);
+                        $.extend(props, {
+                            left: left + 'px'
+                        });
+                    }
+                    if (options.transition > 0) $(this).animate(props, options.transition);
+                    else $(this).css(props);
+                    return $(this);
+                });
+            }
+        });
+    })(jQuery);
+
+    var w_width = 830;
+    var w_height = 680;
+
+    function trim(value) {
+        return value.replace(/^\s+|\s+$/g, "");
+    }
+
+    function ltrim(value) {
+        return value.replace(/^\s+/, "");
+    }
+
+    function rtrim(value) {
+        return value.replace(/\s+$/, "");
+    }
+
+    function getInternetExplorerVersion() {
+        var rv = -1;
+        if (navigator.appName == 'Microsoft Internet Explorer') {
+            var ua = navigator.userAgent;
+            var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+            if (re.exec(ua) != null) {
+                rv = parseFloat(RegExp.$1);
+            }
+        }
+        return rv;
+    }
+
+    function checkIEVersion() {
+        var ver = getInternetExplorerVersion();
+        if (ver > -1) {
+            if (ver >= 9.0) {
+                ie9version = true;
+            } else {
+                ie9version = false;
+            }
+        }
+    }
+
+    function badAct(e) {
+        if (e.altKey) {
+            document.forms['form1']['ba_cnt'].value = document.forms['form1']['ba_cnt'].value * 1 + 1;
+            alert("부정행위 방지를 위해 금지된 키(Key) 입니다." +
+                "\n3회 이상 반복시도 시 해당 시험이 감점 또는 0점 처리됩니다. (" + (document.forms['form1']['ba_cnt'].value * 1) + "회)"
+            );
+            e.keyCode = 0;
+            return false;
+        }
+    }
+
+    function pntScreen(e) {
+        if (e.keyCode == 44) {
+            document.forms['form1']['ba_cnt'].value = document.forms['form1']['ba_cnt'].value * 1 + 1;
+            alert("부정행위 방지를 위해 금지된 키(Key) 입니다." +
+                "\n3회 이상 반복시도 시 해당 시험이 감점 또는 0점 처리됩니다. (" + (document.forms['form1']['ba_cnt'].value * 1) + "회)"
+            );
+            e.keyCode = 0;
+            return false;
+        }
+    }
+
+    function my_onkeydown_handler() {
+        if (event.keyCode == 116 || event.keyCode == 18 || event.keyCode == 121 || event.keyCode ==
+            122) { // F5 알트키, F11 키 막기
+            try {
+                event.keyCode = 0;
+            } catch (e) {}
+            event.cancelBubble = true;
+            event.returnValue = false;
+            return false;
+        } else if (event.ctrlKey == true) { // 컨트롤키 
+            return false;
+        }
+        return true;
+    }
+
+    function disable() {
+        if (event.button == 2) {
+            event.returnvalue = false;
+            event.cancelbubble = true;
+            return false;
+        }
+    }
+
+    $(document).ready(function () {
+        var version = navigator.appversion;
+        checkIEVersion();
+        $(document).css("overflow", "hidden");
+        $('#wrap').center();
+        //드레그 새로고침 복사방지
+        document.oncontextmenu = function () {
+            alert("오른쪽 마우스버튼은 사용할 수 없습니다.");
+            return false;
+        }
+        document.ondragstart = function () {
+            return false;
+        }
+        document.onselectstart = function () {
+            return false;
+        }
+        //window.onunload = function() { return true; }
+        //드레그 새로고침 복사방지   
+
+        document.onkeydown = my_onkeydown_handler;
+    });
+</script>
+
+<script>
+    function CmdGotoNext() {
+        $.ajax({
+            type: 'post',
+            url: "/classroom/pop_exam_timeCheck.jsp",
+            dataType: 'json',
+            data: {
+                'id': '{{id}}',
+                'ek': '{{ek}}'
+            },
+            success: function (data, status) {
+                if (data.returnValue == '-100') {
+                    alert("올바른 접근이 아닙니다");
+                    return;
+                } else if (data.returnValue == '-200') {
+                    alert("응시정보를 알수 없습니다.");
+                    return;
+                } else if (data.returnValue == '-300') {
+                    alert("이미 응시한 시험입니다.");
+                    return;
+                } else if (data.returnValue == '-400') {
+                    alert("이미 평가완료된 시험입니다");
+                    return;
+                } else if (data.returnValue == '-1000') {
+                    alert("시험시작 전 입니다. 시험시간 정시에 입장해 주세요");
+                    return;
+                }
+                location.href = "pop_exam_view.jsp?id={{id}}&ek={{ek}}";
+                return false;
+            },
+            error: function (request, status, error) {
+                alert('통신 오류가 발생했습니다.');
+                return;
+            }
+        });
+    }
+</script>
+
+<body>
+    <div id="wrapper">
+        <section id="cBody">
+            <div class="subWrap">
+                <div id="html_safe_bg" name="html_safe_bg"
+                    style="width:100%;height:100%;top:0px;left:0px;position:absolute; z-index:1000;background:#1B1B1B;display:none;">
+                    <font color="white" style="font-weight: bold; font-size: 20px;">시험프로그램 설치를 확인중입니다.</font>
+                </div>
+                <style>
+                    .subWrap {
+                        padding: 50px 0 0 0;
+                    }
+
+                    h2 {
+                        font-size: 42px;
+                    }
+
+                    .inner {
+                        margin-top: 20px;
+                    }
+
+                    ul.list01 li {
+                        padding-left: 35px;
+                    }
+
+                    ul.list01 li+li {
+                        margin: 12px 0;
+                    }
+                </style>
+                <h2 class="font_gb">시험방 입장전 숙지사항</h2>
+                <div class="inner classroom_index curriculum_index clearfix">
+                    <div class="con_box table_box">
+                        <p class="tit_txt">시험 준비</p>
+                        <div class="txt_wrap">
+                            <ul class="list01">
+                                <li>팝업창의 상단 또는 하단에 표시되는 ActiveX를 반드시 설치 해야 합니다.</li>
+                                <li>시험방 입장 전, 현재 자신의 컴퓨터에서 실행되고 있는 프로그램들 중에서 검사된 프로그램은 반드시 종료하셔야 합니다.</li>
+                                <li>검사된 프로그램의 종료는 Window 작업관리자나, 해당 프로그램에서 정상적으로 종료 하시면 됩니다. <br />허용불가 프로그램이 실행 중일 경우
+                                    입장에 제한이 있습니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="con_box table_box">
+                        <p class="tit_txt">시험진행방법 안내</p>
+                        <div class="txt_wrap">
+                            <ul class="list01">
+                                <li>시험 도중에 답을 입력했으나 우측의 확인란에 해당 문제의 답이 미입력으로 남아있는 경우는 화면이 정상적으로 로드되지 못했기
+                                    때문입니다. <br>f5를 눌러서 새로고침을 하시고 진행해 주시기 바랍니다.</li>
+                                <li>새로고침을 하셔도 기존에 정상적으로 입력 되어있는 답안에 대해서는 이상없이 저장되어있을음 미리 알려드리며 새로고침을 계속 하여도
+                                    문제가<br> 있을시에는 연락주시기 바랍니다.</li>
+                            </ul>
+                        </div>
+                        <div class="btn_wrap" style="text-align: center; margin-top: 50px;">
+                            <a href="#" class="button" onclick="CmdGotoNext();">시험 고사장 입장하기 (시험시작)</a>
+                            <a href="#" class="button" onClick="window.close()"
+                                style="margin-left: 15px; background-color:#ccc; color:#1a1a1a;">닫기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>

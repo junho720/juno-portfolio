@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="학점은행제 교육기관, 사회복지사, 보육교사, 학위 취득">
+    <meta name="description" content="">
+    <title>누리사이버교육원</title>
+    <link rel="stylesheet" href="../html/css/style2.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../html/js/script.js"></script>
+</head>
+
+<body class="">
+    <div class="pop_4" style="width: 800px;">
+        <div class="pop_top">
+            <h1>자기소개서</h1>
+        </div>
+        <div class="pop_con">
+            <div class="border_box">
+                <table class="table">
+                    <colgroup>
+                        <col width="100" />
+                        <col width="*" />
+                    </colgroup>
+                    <tr>
+                        <th>과목명</th>
+                        <td>
+                            {{course_name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>학기/기수</th>
+                        <td>{{year}}년 {{semester}} / {{term}}기</td>
+                    </tr>
+                    <tr>
+                        <th>작성자</th>
+                        <td>{{user_name}}</td>
+                    </tr>
+                </table>
+                <h3>자기소개서</h3>
+                <table class="table" style="margin-top: 5px;">
+                    <colgroup>
+                        <col width="100" />
+                        <col width="*" />
+                    </colgroup>
+                    <tr>
+                        <td class="qnacontents" style="padding-right:10px;"><textarea name="intro_motto"
+                                style="width:97%;height:80px;">{{intro_motto}}</textarea></td>
+                    </tr>
+                </table>
+                <h3>학습계획서</h3>
+                <table class="table">
+                    <colgroup>
+                        <col width="100" />
+                        <col width="*" />
+                    </colgroup>
+                    <tr>
+                        <td class="qnacontents" style="padding-right:10px;"><textarea name="lplan_motive"
+                                style="width:97%;height:80px;">{{lplan_motive}}</textarea></td>
+                    </tr>
+                </table>
+
+
+                <form name="form1" method="POST">
+
+                    <table class="table">
+                        <colgroup>
+                            <col width="20%" />
+                            <col width="*" />
+                        </colgroup>
+                        <tr>
+                            <th>참여점수 / 배점</th>
+                            <td class="qnacontents" style="line-height: 24px;">
+                                <input type="text" style="width:40px; border:1px solid #e1e1e1;" name="pds_score"
+                                    value="{{pds_score}}">점 / 3점
+                            </td>
+                        </tr>
+                    </table>
+                    <p style="text-align: center;">
+                        <span><input type="image" src="../html/images/btn/btn_modify.png" alt="수정" /></a></span>
+                        <a href="javascript: window.close();" class="btn"
+                            style="margin: 0 auto; display: inline-block; width: 80px;">닫기</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

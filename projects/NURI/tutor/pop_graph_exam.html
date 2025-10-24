@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="학점은행제 교육기관, 사회복지사, 보육교사, 학위 취득">
+    <meta name="description" content="">
+    <title>누리사이버교육원</title>
+    <link rel="stylesheet" href="../html/css/style2.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../html/js/script.js"></script>
+</head>
+
+<body class="">
+    <div class="pop_4" style="width: 500px;">
+        <div class="pop_top">
+            <h1>성적분포</h1>
+        </div>
+        <div class="pop_con">
+            <div class="border_box">
+                <h2>성적분포[{{einfo.name}}]</h2>
+                <p style="margin-top: 20px;">* 과목명 : <span>{{course_info.name}}</span></p>
+                <table class="table">
+                    <colgroup>
+                        <col width="40%" />
+                        <col width="30%" />
+                        <col width="30%" />
+                    </colgroup>
+                    <tr>
+                        <th>성적분포</th>
+                        <th>학습자</th>
+                        <th>비율(%)</th>
+                    </tr>
+                    <tr>
+                        <td class="gkw">90점 이상</td>
+                        <td>{{items.p90_cnt}}명</td>
+                        <td>{{items.p90_rate}}%</td>
+                    </tr>
+                    <tr>
+                        <td class="gkw">80점 이상 ~ 90점 미만</td>
+                        <td>{{items.p80_cnt}}명</td>
+                        <td>{{items.p80_rate}}%</td>
+                    </tr>
+                    <tr>
+                        <td class="gkw">70점이상 ~ 80점 미만</td>
+                        <td>{{items.p70_cnt}}명</td>
+                        <td>{{items.p70_rate}}%</td>
+                    </tr>
+                    <tr>
+                        <td class="gkw">60점이상 ~ 70점미만</td>
+                        <td>{{items.p60_cnt}}명</td>
+                        <td>{{items.p60_rate}}%</td>
+                    </tr>
+                    <tr>
+                        <td class="gkw">60점미만</td>
+                        <td>{{items.else_cnt}}명</td>
+                        <td>{{items.else_rate}}%</td>
+                    </tr>
+                    <tr class="total" style="background-color: #e1e1e1;">
+                        <td class="gkw">합계</td>
+                        <td>{{total_user}}명</td>
+                        <td>100%</td>
+                    </tr>
+                </table>
+                <div class="graph" style="padding-top:0px;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td align="center" valign="top">
+                                <script type="text/javascript">
+                                    //그래프 출력
+                                    var params = new Array();
+                                    params.push("cht=p3");
+                                    //params.push("chtt=성적분포");
+                                    params.push("chs=280x265"); //크기
+                                    params.push("chdlp=b"); //설명 위치
+                                    <
+                                    !--IF START 'graph_block'-- >
+                                        params.push(
+                                            "chd=t:{{items.p90_rate}},{{items.p80_rate}},{{items.p70_rate}},{{items.p60_rate}},{{items.else_rate}}"
+                                            ); //값(%)
+                                    <
+                                    !--IF END 'graph_block'-- >
+                                        <
+                                        !--IFNOT START 'graph_block'-- >
+                                        params.push(
+                                            "chd=t:{{items.p90_rate}},{{items.p80_rate}},{{items.p70_rate}},{{items.p60_rate}},100"
+                                            ); //값(%)
+                                    <
+                                    !--IFNOT END 'graph_block'-- >
+                                        params.push("chls=0");
+                                    params.push(
+                                        "chdl=90점 이상&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|80점 이상 ~ 90점 미만|70점 이상 ~ 80점 미만|60점 이상 ~ 70점 미만|60점 미만&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                                        ); //각 그래프명
+                                    params.push("chco=4F81BD,C0504D,9BBB59,8064A2,4BACC6"); //각 그래프색
+                                    document.write('<img border="0" src="https://chart.googleapis.com/chart?' + params
+                                        .join("&") + '" />');
+                                </script>
+                            </td>
+                        </tr>
+                    </table>
+                    <div>
+                        <a href="javascript: window.close();" class="btn" style="margin: 0 auto;">닫기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

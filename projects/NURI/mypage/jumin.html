@@ -1,0 +1,99 @@
+<section id="cBody">
+    <div class="subWrap">
+        <div class="mypage_back font_gm">
+            <a href="../mypage/index.html">나의 강의실로</a>
+        </div>
+        <h2 class="font_gb">회원정보 수정</h2>
+        <div class="inner mypage_inner out_inner clearfix" style="margin-top: 0;">
+            <div class="tabBtn">
+                <a href="../mypage/modify.html" class="on">
+                    <span>회원정보 수정</span>
+                </a>
+                <a href="../mypage/pw_modify.html">
+                    <span>비밀번호 수정</span>
+                </a>
+                <a href="../mypage/message.html">
+                    <span>쪽지함</span>
+                </a>
+                <a href="../mypage/mac.html">
+                    <span>수강 컴퓨터 등록</span>
+                </a>
+                <a href="../mypage/out.html">
+                    <span>회원탈퇴 신청</span>
+                </a>
+            </div>
+            <!-- <form name="form1" method="post" action="/nc_check/nc_request.jsp" onsubmit="return goSubmit(this)"> -->
+            <form name="form1" method="post" action="/nc_check/nc2.jsp" onsubmit="return goSubmit(this)">
+                <style>
+                    .inner input {
+                        width: 90px;
+                        height: 36px;
+                    }
+                </style>
+                <div class="con_box table_box">
+                    <p class="tit_txt">회원정보 수정</p>
+                    <div class="txt_wrap" style="line-height: 30px;">
+                        <p style="padding-left:20px;">평가인정학습과정 운영지침 변경에 따라 개인정보 및 부가정보를 입력하여야
+                            합니다.<br>
+                            이메일, 연락처, 주소, 학력정보를 확인해 주시고 정확히 입력하여 주시기 바랍니다.<br>
+                            근거: 교육부 제2015-85호 평가인정학습과정 운영지침(6조 학적관리 등)<br>
+                        </p>
+                    </div>
+                    <div class="txt_wrap">
+                        <p class="txt_sub" style="margin : 30px 0 10px; font-size: 18px;">개인정보 입력</p>
+                    </div>
+                    <table class="con_table" style="margin-top: 0px;">
+                        <caption class="blind"></caption>
+                        <colgroup width="1100px">
+                            <col width="30%">
+                            <col width="70%">
+                        </colgroup>
+                        <tbody>
+                            <tr style="border-top: 2px solid #8276f4">
+                                <th>이름</th>
+                                <td>
+                                    {{name}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>주민등록번호</th>
+                                <td style="font-size: 24px;">
+                                    <input type="hidden" name="username" id="username" value="{{name}}">
+                                    <input type="text" class="txt" name="jumin1" value="" size="6" maxlength="6"
+                                        required> -
+                                    <input type="text" class="txt" name="jumin2" value="" size="7" maxlength="7"
+                                        required>
+                                    <script>
+                                        //alert("실명확인을 하셔야 강의를 수강하실 수 있습니다. 주민등록번호를 입력 후 실명확인을 클릭하여 인증하시기 바랍니다.")
+                                    </script>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="txt_wrap" style="margin-top: 0;">
+                        <p class="txt_grey" style="padding: 5px 0;">* 실명인증 후 강의를 수강하실 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="btn_wrap">
+                    <button type="button">
+                        다음
+                    </button>
+                </div>
+            </form>
+            {{form_script}}
+
+            <script>
+                function goSubmit(f) {
+                    var ncchk = document.getElementById('nccheck').value;
+                    if (ncchk != "Y") {
+                        alert("실명인증을 하지 않았습니다.");
+                        return false;
+                    }
+
+                    if (!validate(f)) return false;
+                }
+            </script>
+        </div>
+    </div>
+</section>

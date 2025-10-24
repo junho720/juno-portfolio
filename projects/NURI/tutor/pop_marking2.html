@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="학점은행제 교육기관, 사회복지사, 보육교사, 학위 취득">
+    <meta name="description" content="">
+    <title>누리사이버교육원</title>
+    <link rel="stylesheet" href="../html/css/style2.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../html/js/script.js"></script>
+</head>
+
+<form name="form1" method="post" onsubmit="return goSubmit(this)">
+
+    <body>
+        <div id="wrapper">
+            <section id="cBody">
+                <div class="subWrap tutor_wrap pt-0">
+                    <div class="lnb_wrap">
+                        <div class="lnb">
+                            <div class="lnb_bg"></div>
+                            <ul class="lnb_dep1 clearfix">
+                                <li>
+                                    <a href="index.jsp">과목정보</a>
+                                    <div class="lnb_dep2">
+                                        <ul>
+                                            <li><a href="index.jsp">과목 홈</a></li>
+                                            <li><a href="curriculum.jsp">강의계획서</a></li>
+                                            <li><a href="notice_list.jsp">과목공지사항</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="evaluation.jsp" class="on">과목평가</a>
+                                    <div class="lnb_dep2">
+                                        <ul>
+                                            <li><a href="evaluation.jsp">평가현황</a></li>
+                                            <li><a href="exam_list.jsp">시험방</a></li>
+                                            <li><a href="homework_list.jsp">과제방</a></li>
+                                            <li><a href="forum_list.jsp">1,000자 칼럼</a></li>
+                                            <li><a href="student_intro_list.jsp">자기소개서</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="schedule.jsp">학사활동</a>
+                                    <div class="lnb_dep2">
+                                        <ul>
+                                            <li><a href="schedule.jsp">학사일정</a></li>
+                                            <li><a href="attendance.jsp">출석관리</a></li>
+                                            <li><a href="progress.jsp">진도관리</a></li>
+
+                                            <li><a href="complete_stat.jsp">성적관리</a></li>
+
+                                            <li><a href="urge_list.jsp">학습독려</a></li>
+                                            <li><a href="note_list.jsp">학습노트</a></li>
+                                            <li><a href="dissent_list.jsp">성적이의신청</a></li>
+                                            <li><a href="message.jsp">쪽지함</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="reference_list.jsp">과목게시판</a>
+                                    <div class="lnb_dep2">
+                                        <ul>
+                                            <li><a href="reference_list.jsp">과목자료실</a></li>
+                                            <li><a href="qna_list.jsp">과목 Q&amp;A</a></li>
+                                            <li><a href="survey_list.jsp">강의설문</a></li>
+                                            <li><a href="error_list.jsp">콘텐츠 오류신고</a></li>
+                                            <li><a href="tutor_list.jsp">교강사 게시판</a></li>
+                                            <li><a href="counsel_list.jsp">상담일지 게시판</a></li>
+
+                                            <li><a href="#"
+                                                    onclick="window.open('/tutor/pop_question_list.jsp','view', 'width=900, height=900, scrollbars=yes, realzable=yes, location=no');">·
+                                                    문제은행관리</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="modify.jsp">회원정보 수정</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2 class="font_gb">시험채점</h2>
+                    <div class="inner classroom_index curriculum_index clearfix">
+                        <div class="con_box table_box">
+                            <p class="tit_txt">시험채점관리</p>
+                            <table class="con_table sub_table4" style="margin-bottom: 50px;">
+                                <caption class="blind"></caption>
+                                <colgroup>
+                                    <col width="20%" />
+                                    <col width="*%" />
+                                </colgroup>
+                                <tbody>
+                                    <tr height="50">
+                                        <th>시험명</th>
+                                        <td><strong>{{euinfo.name}}</strong></td>
+                                    </tr>
+                                    <tr height="50">
+                                        <th>응시자</th>
+                                        <td>{{euinfo.user_name}} ({{euinfo.user_id}})</td>
+                                    </tr>
+                                    <tr height="50">
+                                        <th>점수</th>
+                                        <td style="line-height:28px;"><input type="text" name="score"
+                                                value="{{euinfo.total_score}}"
+                                                style="width: 100px; height: 30px; margin-right: 5px;"> 점</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="btn_wrap" style="text-align: center; margin-top: 50px;">
+                                <a href="#" onclick="doClose();" class="button">점수저장</a>
+                                <a href="#" class="button"
+                                    style="margin-left: 15px; background-color:#ccc; color:#1a1a1a;">닫기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+
+</form>
+{{form_script}}
+
+<script>
+    function setMax(el, assign) {
+        el.value = el.value.replace(/[^0-9\.]+/gi, '');
+        if (el.value * 1 > assign) {
+            el.value = assign;
+        }
+    }
+
+    function goSubmit(f) {
+        if (!validate(f)) return false;
+        if (!confirm("저장하시겠습니까?")) return false;
+    }
+</script>
+
+</html>

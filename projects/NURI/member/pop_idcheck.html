@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="학점은행제 교육기관, 사회복지사, 보육교사, 학위 취득">
+    <meta name="description" content="">
+    <title>누리사이버교육원</title>
+    <link rel="stylesheet" href="../html/css/style2.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../html/js/script.js"></script>
+</head>
+<body class="pop_body">
+    <form name="form1" method="post">
+
+        <!-- IFNOT START 'post_block' -->
+        <!-- S: popupwrap -->
+
+        <div class="pop_1">
+            <h1>ID 중복확인</h1>
+            <div class="con on">
+                <ul class="id_ul">
+                    <li class="txt">아이디(ID)</li>
+                    <li>
+                        <input type="text" name="id" class="txt" onfocus="this.select()">
+                    </li>
+                    <li>
+                        <a href="#" class="btn">중복확인</a>
+                    </li>
+                </ul>
+                <h2>유의사항</h2>
+                <ul class="txt_ul">
+                    <li>아이디를 입력하신 후 중복확인 버튼을 클릭해주세요.</li>
+                    <li>영소문/숫자만 입력가능, 4~15자 이하여야합니다.</li>
+                    <li>첫글자는 영문자만 사용가능합니다.</li>
+                </ul>
+            </div>
+            <a href="javascript: window.close();"  class="close">닫기</a>
+        </div>
+            <!-- // E: popupwrap -->
+            <!-- IFNOT END 'post_block' -->
+            <!-- IF START 'post_block' -->
+        
+
+            <!-- IFNOT START 'exists' -->
+            <!-- S: popupwrap -->
+        <div class="pop_1">
+            <h1>ID 중복확인</h1>
+            <div class="con on">
+                <input type="hidden" name="confirm_id" value="{{id}}">
+                <p style="margin: 5px;">
+                    <span>"{{id}}"</span>는
+                    <span style="color: blue;">사용 가능</span>한 아이디입니다.
+                </p>
+                <p>이 아이디를 사용하시겠습니까?</p>
+                <a href="javascript:setId()" class="btn btn2"><span>아이디 사용하기</span></a>
+                <ul class="nmsch">
+                    <li class="hd">다른 ID 조회</li>
+                    <li class="inp"><input type="text" name="id" class="txt" onfocus="this.select()" /></li>
+                    <li class="bt"><a href="#" class="btn">중복확인</a></li>
+                </ul>
+            </div>
+            <a href="javascript: window.close();"  class="close">닫기</a>
+        </div>
+            <!-- // E: popupwrap -->
+            <!-- IFNOT END 'exists' -->
+
+            <!-- IF START 'exists' -->
+            <!-- S: popupwrap -->
+        <div class="pop_1">
+            <h1>ID 중복확인</h1>
+            <div class="con on">
+                <p><span class="id">"{{id}}"</span> 은(는) 이미 <span class="using">사용 중</span>인 아이디 입니다.</p>다른 아이디를 조회해
+                주십시오.</a>
+                <ul class="nmsch">
+                    <li class="hd">다른 ID 조회</li>
+                    <li class="inp"><input type="text" name="id" class="txt" onfocus="this.select()" /></li>
+                    <li class="bt"><a href="#" class="btn">중복확인</a></li>
+                </ul>
+            </div>
+            <a href="javascript: window.close();"  class="close">닫기</a>
+        </div>
+        
+            <!-- // E: popupwrap -->
+            <!-- IF END 'exists' -->
+            <!-- IF END 'post_block' -->
+        
+    </form>
+
+    {{form_script}}
+</body>
+
+<script>
+    function setId() {
+        opener.document.forms['form1']['id'].value = document.forms['form1']['confirm_id'].value.toLowerCase();
+        opener.document.forms['form1']['idcheck_yn'].value = "Y";
+        window.close();
+    }
+
+    addEvent("onload", function () {
+        document.forms['form1']['id'].focus();
+        opener.document.forms['form1']['idcheck_yn'].value = "N";
+    });
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="학점은행제 교육기관, 사회복지사, 보육교사, 학위 취득">
+    <meta name="description" content="">
+    <title>누리사이버교육원</title>
+    <link rel="stylesheet" href="../html/css/style2.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../html/js/script.js"></script>
+</head>
+
+<body class="">
+    <div class="pop_4" style="width: 500px;">
+        <div class="pop_top">
+            <h1>쪽지발송</h1>
+        </div>
+        <div class="pop_con">
+            <div class="border_box">
+                <h2>쪽지발송</h2>
+                <table class="table">
+                    <colgroup>
+                        <col width="80" />
+                        <col width="*" />
+                    </colgroup>
+                    <tr>
+                        <th>제목</th>
+                        <td><input type="text" class="txt" style="width: 295px;" name="subject" /></td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td><textarea name="content"
+                                style="width:280px;height:160px; padding: 10px;">{{content}}</textarea></td>
+                    </tr>
+                </table>
+                <div style="text-align: center;">
+                    <button type="button" class="btn">쪽지발송</button>
+                    <a href="javascript: window.close();" class="btn" style="display:inline-block;">닫기</a>
+                </div>
+                <div style="margin-top:20px;">
+                    <table>
+                        <tr height="50">
+                            <td>
+                                <a href="javascript:void(0);" onclick="sendSearch();"><img
+                                        src="../html/images/btn/btn_targetchoice.png" class="btn" alt="대상선택" /></a>
+                                <a href="javascript:void(0);" onclick="removeBtnContents();"><img
+                                        src="../html/images/btn/btn_seldel_s.png" class="btn" alt="선택삭제" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="send_list" size="10" style="width:438px;height:165px;padding:10px;"
+                                    ondblclick="removeContent()" multiple>
+                                    <!-- LOOP START 'send_list' -->
+                                    <option value="{{send_list.user_id}}">{{send_list.user_name}}
+                                        [{{send_list.user_id}}]</option>
+                                    <!-- LOOP END 'send_list' -->
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="학점은행제 교육기관, 사회복지사, 보육교사, 학위 취득">
+    <meta name="description" content="">
+    <title>누리사이버교육원</title>
+    <link rel="stylesheet" href="../html/css/style2.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../html/js/script.js"></script>
+</head>
+
+<body class="">
+    <div class="pop_4" style="width: 800px;">
+        <div class="pop_top">
+            <h1>문제은행관리</h1>
+        </div>
+        <div class="pop_con">
+            <div class="border_box">
+                <style>
+                    input {
+                        vertical-align: middle;
+
+                    }
+
+                    input[type="text"] {
+                        border: 1px solid #e1e1e1;
+                    }
+
+                    select {
+                        border: 1px solid #e1e1e1;
+                    }
+
+                    input[type="submit"] {
+                        padding: 5px 10px;
+                        box-sizing: border-box;
+                        border: none;
+                        background-color: #ccc;
+                    }
+                </style>
+                <form name="form1" method="get">
+                    <input type="hidden" name="tab" value="{{tab}}">
+                    <input type="hidden" name="ord" value="">
+                    <input type="hidden" name="mode" value="">
+                    <input type="hidden" name="s_category_id" value="{{s_category_id}}">
+                    <input type="hidden" name="MN" value="{{MN}}">
+
+                    <!-- Search Area -->
+                    <table class="table">
+                        <col width="120">
+                        <col>
+                        <tr>
+                            <th>문제유형</th>
+                            <td>
+                                <label><input type="radio" name="s_type" value="" class="ipt01" checked> 전체 </label>
+                                <!-- LOOP START 'type_list' -->
+                                <label><input type="radio" name="s_type" value="{{type_list.id}}" class="ipt01">
+                                    {{type_list.name}} </label>
+                                <!-- LOOP END 'type_list' -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>난이도</th>
+                            <td>
+                                <label><input type="radio" name="s_grade" value="" class="ipt01" checked> 전체 </label>
+                                <!-- LOOP START 'grade_list' -->
+                                <label><input type="radio" name="s_grade" value="{{grade_list.id}}" class="ipt01">
+                                    {{grade_list.name}} </label>
+                                <!-- LOOP END 'grade_list' -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>사용여부</th>
+                            <td>
+                                <label><input type="radio" name="s_active" value="" class="ipt01" checked> 전체 </label>
+                                <!-- LOOP START 'active_list' -->
+                                <label><input type="radio" name="s_active" value="{{active_list.id}}" class="ipt01">
+                                    {{active_list.name}} </label>
+                                <!-- LOOP END 'active_list' -->
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                정답율 :
+                                <select name="s_correct_rate" onchange="document.forms['form1']['s_keyword'].focus();">
+                                    <option value="">-전체-</option>
+                                    <option value="100">100%</option>
+                                    <option value="90-100">90 ~ 100% 미만</option>
+                                    <option value="80-90">80 ~ 90% 미만</option>
+                                    <option value="70-80">70 ~ 80% 미만</option>
+                                    <option value="60-70">60 ~ 70% 미만</option>
+                                    <option value="50-60">50 ~ 60% 미만</option>
+                                    <option value="40-50">40 ~ 50% 미만</option>
+                                    <option value="30-40">30 ~ 40% 미만</option>
+                                    <option value="20-30">20 ~ 30% 미만</option>
+                                    <option value="10-20">10 ~ 20% 미만</option>
+                                    <option value="0-10">0 ~ 10% 미만</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>감수여부</th>
+                            <td>
+                                <label><input type="radio" name="s_confirm" value="" class="ipt01" checked> 전체 </label>
+                                <label><input type="radio" name="s_confirm" value="D" class="ipt01"> 대기 </label>
+                                <label><input type="radio" name="s_confirm" value="Y" class="ipt01"> 승인 </label>
+                                <label><input type="radio" name="s_confirm" value="N" class="ipt01"> 반려 </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>검색</th>
+                            <td>
+                                <select name="s_field" onchange="document.forms['form1']['s_keyword'].focus();">
+                                    <option value="">-전체-</option>
+                                    <option value="a.question">문제</option>
+                                </select>
+                                <input type="text" name="s_keyword" size="35" onfocus="this.select();">
+                                <input class="btn_search" type="submit" value="검색">
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- /Search Area -->
+
+                    <!-- 문제 난이도 카운트 -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>난이도</th>
+                                <td>A</td>
+                                <td>B</td>
+                                <td>C</td>
+                                <td>D</td>
+                                <td>E</td>
+                                <td>전체</td>
+                            </tr>
+                        </thead>
+                        <!-- LOOP START 'question_grade_list' -->
+                        <tbody>
+                            <tr class="l_tr_even">
+                                <th>문항수</th>
+                                <td>{{question_grade_list.a}}</td>
+                                <td>{{question_grade_list.b}}</td>
+                                <td>{{question_grade_list.c}}</td>
+                                <td>{{question_grade_list.d}}</td>
+                                <td>{{question_grade_list.e}}</td>
+                                <td>{{question_grade_list.sum}}</td>
+                            </tr>
+                        </tbody>
+                        <!-- LOOP END 'question_grade_list' -->
+                    </table>
+                    <!-- /문제 난이도 카운트 -->
+
+                    <!-- Action Area -->
+                    <table class="table">
+                        <tr>
+                            <td class="a_th01">{{list_total}}</td>
+                            <td class="a_td01">
+                                <!-- <input type="button" value="일괄등록" class="bttn" onclick="parent.location.href='question_excel.jsp?{{list_query}}';"> -->
+                                <!-- <input type="button" value="등록" class="bttn" onclick="parent.location.href='pop_question_insert.jsp?s_category_id={{s_category_id}}';"> //-->
+                                <!-- <input type="button" value="EXCEL" class="bttn" onclick="document.forms['form1']['mode'].value='excel';document.forms['form1'].submit();document.forms['form1']['mode'].value='';"> //-->
+                                <!-- IF START 'typegubun' -->
+                                <!-- <input type="button" value="선택삭제" class="bttn" onclick="ConfirmCheckGo('form2', 'idx', 'pop_question_delete.jsp?idx=', '삭제하시겠습니까?');"> //-->
+                                <!-- IF END 'typegubun' -->
+                                <!-- <input type="button" value="선택승인" class="bttn" onclick="ConfirmCheckGo('form2', 'idx', 'pop_question_update.jsp?s_category_id={{s_category_id}}&page={{page}}&idx=', '승인하시겠습니까?');"> -->
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- /Action Area -->
+
+                </form>
+                {{form_script}}
+                <!-- IFNOT END 'print_block' -->
+
+                <form name="form2" method="post">
+                    <!-- List Area -->
+                    <table class="table">
+                        <thead>
+                            <tr align="center">
+                                <td>No</td>
+                                <td><span class="l_sort01" id="CL_a.category_id"
+                                        onclick="ListSort(this, '{{ord}}')">카테고리</span></td>
+                                <td><span class="l_sort01" id="CL_a.grade"
+                                        onclick="ListSort(this, '{{ord}}')">난이도</span></td>
+                                <td><span class="l_sort01" id="CL_a.type"
+                                        onclick="ListSort(this, '{{ord}}')">문제유형</span></td>
+                                <td><span class="l_sort01" id="CL_a.question"
+                                        onclick="ListSort(this, '{{ord}}')">문제</span></td>
+                                <td><span class="l_sort01" id="CL_a.correct_rate"
+                                        onclick="ListSort(this, '{{ord}}')">정답율</span></td>
+                                <td><span class="l_sort01" id="CL_a.confirm"
+                                        onclick="ListSort(this, '{{ord}}')">감수여부</span></td>
+                                <td><span class="l_sort01" id="CL_a.active_yn"
+                                        onclick="ListSort(this, '{{ord}}')">사용여부</span></td>
+                                <td width="30"><input type="checkbox" onclick="AutoCheck('form2', 'idx')"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- LOOP START 'list' -->
+                            <tr class="l_tr_{{list.ROW_CLASS}}">
+                                <td>{{list.__ord}}</td>
+                                <td>{{list.cate_name}}</td>
+                                <td>{{list.grade}}</td>
+                                <td>{{list.type}}</td>
+                                <td align="left" title="{{list.question}}"><a
+                                        href="/tutor/pop_question_modify.jsp?id={{list.id}}&{{list_query}}"
+                                        target="_self">{{list.question_conv}}</a></td>
+                                <td>{{list.correct_rate}}%</td>
+                                <td>{{list.confirmstr}}</td>
+                                <td>{{list.active_yn}}</td>
+                                <td><input type="checkbox" name="idx" value="{{list.del_param}}"></td>
+                            </tr>
+                            <!-- LOOP END 'list' -->
+                        </tbody>
+                    </table>
+                    <!-- IFNOT START 'list' -->
+                    <table class="table">
+                        <tr>
+                            <td>해당 자료가 없습니다.</td>
+                        </tr>
+                    </table>
+                    <!-- IFNOT END 'list' -->
+                    <!-- /List Area -->
+
+                    <!-- IFNOT START 'print_block' -->
+                    <!-- Pagebar Area -->
+                    <div class="paging small" style="margin: 30px 0 ;">
+                        <p></p>
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" class="page_box"
+                            style="border-collapse:collapse; width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="page_first_btn">
+                                            <!---->
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="page_prev_btn">
+                                            <!---->
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="page_number_btn_on">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="page_next_btn">
+                                            <!---->
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="page_last_btn">
+                                            <!---->
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p></p>
+
+                    </div>
+                    <!-- /Pagebar Area -->
+
+                    <script>
+                        ListSort(null, "{{ord}}");
+                    </script>
+                    <!-- IFNOT END 'print_block' -->
+
+                </form>
+
+                <div>
+                    <a href="javascript: window.close();" class="btn" style="margin: 0 auto;">닫기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

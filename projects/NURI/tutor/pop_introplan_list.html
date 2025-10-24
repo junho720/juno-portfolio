@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="학점은행제 교육기관, 사회복지사, 보육교사, 학위 취득">
+    <meta name="description" content="">
+    <title>누리사이버교육원</title>
+    <link rel="stylesheet" href="../html/css/style2.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../html/js/script.js"></script>
+</head>
+
+<body class="">
+    <div class="pop_4" style="width: 800px;">
+        <div class="pop_top">
+            <h1>자기소개서</h1>
+        </div>
+        <div class="pop_con">
+            <div class="border_box">
+                <table class="table">
+                    <colgroup>
+                        <col width="100" />
+                        <col width="*" />
+                    </colgroup>
+                    <tr>
+                        <th>과정분류</th>
+                        <td>
+                            년도: {{year}}&nbsp;&nbsp;&nbsp;학기: {{semester}}&nbsp;&nbsp;&nbsp;기수
+                            {{term}}기&nbsp;&nbsp;&nbsp;교과목:{{education_name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>과정명</th>
+                        <td>{{course_name}}</td>
+                    </tr>
+                    <tr>
+                        <th>회원정보</th>
+                        <td>{{user_name}} ({{user_id}})&nbsp;&nbsp;&nbsp;반 정보: {{class_name}}</td>
+                    </tr>
+                </table>
+                <table class="table">
+                    <colgroup>
+                        <col width="*" />
+                        <col width="100" />
+                    </colgroup>
+                    <tr>
+                        <th>구분</th>
+                        <th>등록일</th>
+                    </tr>
+
+                    <tr>
+                        <td class="title"><a href="javascript:"
+                                onclick="popOpen_IntroPlan('pop_studentintro.jsp','{{user_id}}','{{course_id}}','{{year}}','{{semester}}','{{term}}')">자기소개서</a>
+                        </td>
+                        <td class="date">{{intro_date}}</td>
+                    </tr>
+                    <tr>
+                        <td class="title"><a href="javascript:"
+                                onclick="popOpen_IntroPlan('pop_studentplan.jsp','{{user_id}}','{{course_id}}','{{year}}','{{semester}}','{{term}}')">학습계획서</a>
+                        </td>
+                        <td class="date">{{lplan_date}}</td>
+                    </tr>
+                </table>
+                <div>
+                    <a href="javascript: window.close();" class="btn" style="margin: 0 auto;">닫기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

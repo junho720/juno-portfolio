@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="학점은행제 교육기관, 사회복지사, 보육교사, 학위 취득">
+    <meta name="description" content="">
+    <title>누리사이버교육원</title>
+    <link rel="stylesheet" href="../html/css/style2.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../html/js/script.js"></script>
+</head>
+<body class="pop_body body_user">
+    <div class="pop_1 pop_user" >
+        <div class="con on" style="height: 400px;">
+            <h2 class="h_img">발송 대상 선택</h2>            
+            <div id="contentsbox">
+                <form name="form1" method="get" target="left" action="pop_user_left.jsp">
+                <input type="hidden" name="idx" value="">
+                <ul class="nmsch" style="margin-top: 10px;">
+                    <li class="hd">이름 / 아이디</li>
+                    <li class="inp"><input type="text" class="txt" name="s_keyword"/></li>
+                    <li class="btn"><input type="image" src="../html/images/sub/btn_search.png" alt="검색" style="height:28px" /></li>
+                </ul>
+                </form>
+                <div class="cntsmbox_01 clearfix">
+                    <div class="cntsmbox_02">                        
+                        <h3>대상회원</h3>
+                        <form method="">
+                            <div>
+                                <select name="left" size="20" style="width:100%;" multiple class="selbox" ondblclick="parent.addContent();">		
+                                    <option value="sangdam111">,손덕분 [sangdam111]</option>
+                                    <option value="201801685">01084436482 [201801685]</option>		
+                                    <option value="201301629">8803282447011 [201301629]</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="paging small">
+                            <table style="margin: 0 auto;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="#">
+                                                <div class="page_first_btn">처음</div>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <div class="page_prev_btn">이전</div>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <div class="page_number_btn_on">1</div>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <div class="page_number_btn">2</div>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <div class="page_number_btn">3</div>
+                                            </a>
+                                        </td>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <div class="page_next_btn">다음</div>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <div class="page_last_btn">끝</div>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>        
+                    <div class="btnbox">
+                        <a href="javascript:void(0);" onclick="addBtnContents();"><img src="../html/images/sub/btn_moveright.png" alt="" /></a>
+                        <a href="javascript:void(0);" onclick="removeBtnContents();"><img src="../html/images/sub/btn_moveleft.png" alt="" /></a>
+                    </div>        
+                    <div class="cntsmbox_02">                        
+                        <h3>선택회원</h3>
+                        <form method="POST" name="form1">
+                            <input type="hidden" name="idx" value="">
+                            <div>
+                                <select name="right" size="20" style="width:100%;" multiple class="selbox" ondblclick="parent.removeContent()">
+                                </select>
+                                <p class="btn_seldel"><a href="javascript:void(0);" onclick="parent.removeBtnContents();"><img src="../html/images/sub/btn_seldel.png" alt="선택삭제" style="width: 60px;"/></a></p>
+                                <div style="text-align:right;margin-top:10px;">
+                                    <a href="javascript:void(0);" onclick="parent.selectUser();"><img src="../html/images/sub/btn_select_s.png" alt="" /></a>
+                                    <a href="javascript:void(0);" onclick="parent.window.close();"><img src="../html/images/sub/btn_cancel_s.png" alt="" /></a>
+                                </div>                                
+                            </div>
+                        </form>    
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="javascript: window.close();"  class="btn" style="margin: 20px auto;">닫기</a>
+            </div>
+        </div>            
+    </div>  
+</body>
+</html>
